@@ -32,7 +32,7 @@ public class Task_1 implements Task_1_base {
         // 2 - аргументы функции заданы некорректно
         // Допустимой погрешностью при сравнении переменных типа double считать 0.000001
         if (Math.abs(width - height) < .000001) {
-            if (Math.abs(x - left_up_x) < .000001 || Math.abs(x - (left_up_x + width)) < .000001 || Math.abs(left_up_y - y) < .000001 || Math.abs(y - left_up_y + height) < .000001) {
+            if (Math.abs(x - left_up_x) < .000001 && Math.abs(x - (left_up_x + width)) < .000001 && Math.abs(left_up_y - y) < .000001 && Math.abs(y - left_up_y + height) < .000001) {
                 return 0;
             }
             if (x > left_up_x && x < (left_up_x + width) && y < left_up_y && y > (left_up_y - height)) {
