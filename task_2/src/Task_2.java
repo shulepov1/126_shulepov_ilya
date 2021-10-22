@@ -26,14 +26,8 @@ public class Task_2 implements Task_2_base {
         if (num != 0) {
             return 2 * subtask_2_while(num - 1) + 6;
         }
-        else if (num == 0) {
-            return 1;
-        }
-
-        return 0;
-
+        else return 1;
     }
-
     @Override
     public boolean subtask_3_while(int num, int base) {
         // Проверить, является ли число num натуральной степенью числа base
