@@ -22,8 +22,12 @@ public class Task_5 implements Task_5_base {
         // содержащий первые size элементов последовательности, описанной в
         // задаче subtask_2_for задания task_3
         ArrayList<Integer> arr = new ArrayList<>(size);
-        
-        return null;
+         for (int i = 1, j = 0; j < size; i++) {
+            for (int k = 0; j < size && k < i; j++, k++) {
+                arr.add(i);
+            }
+        }
+        return arr;
     }
 
     @Override
@@ -54,10 +58,13 @@ public class Task_5 implements Task_5_base {
         // либо только в s2, но не в обоих множествах одновременно
         HashSet<Integer> retained = new HashSet<>(s1);
         retained.retainAll(s2);
+
         s1.removeAll(retained);
         s2.removeAll(retained);
+
         HashSet<Integer> s1new = new HashSet<>(s1);
         HashSet<Integer> s2new = new HashSet<>(s2);
+
         s1new.addAll(s2new);
 
         return s1new;
