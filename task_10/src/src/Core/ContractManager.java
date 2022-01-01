@@ -5,6 +5,10 @@ import java.util.HashMap;
 public class ContractManager {
     private HashMap<String, Contract> contractsList;
 
+    public HashMap<String, Contract> getContractsList(){
+        return contractsList;
+    }
+
     private ContractManager(){
         contractsList = new HashMap<String, Contract>();
     }
