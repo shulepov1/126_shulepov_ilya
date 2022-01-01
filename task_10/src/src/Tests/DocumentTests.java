@@ -1,5 +1,6 @@
 package Tests;
 import org.junit.*;
+import Core.*;
 
 public class DocumentTests extends Assert{
     @Test
