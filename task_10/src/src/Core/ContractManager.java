@@ -3,17 +3,17 @@ package Core;
 import java.util.HashMap;
 
 public class ContractManager {
-    private HashMap<String, Contract> contractsList;
+    private HashMap<Integer, Contract> contractsList;
 
-    public HashMap<String, Contract> getContractsList(){
+    public HashMap<Integer, Contract> getContractsList(){
         return contractsList;
     }
 
     private ContractManager(){
-        contractsList = new HashMap<String, Contract>();
+        contractsList = new HashMap<Integer, Contract>();
     }
 
-    public void addContract(String number, String date){
+    public void addContract(Integer number, Integer date){
         if (number != null) {
             contractsList.put(number, new Contract(date));
         }
@@ -25,5 +25,9 @@ public class ContractManager {
 
     public int getContractsCount(){
         return contractsList.size();
+    }
+
+    public void registerDocument(int sum, int number, String docType, int contractNumber, int date){
+        contractsList.get(contractNumber).registerDocument(sum, number, docType, date);
     }
 }
