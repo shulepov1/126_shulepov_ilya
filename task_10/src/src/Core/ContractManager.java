@@ -2,8 +2,6 @@ package Core;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
 
 public class ContractManager {
     private HashMap<Integer, Contract> contractsList;
@@ -35,8 +33,18 @@ public class ContractManager {
     }
 
     public HashMap<Integer, Integer> getListOfContractsWithPayments(){
-        HashMap<Integer, Integer> pays = new HashMap<>();
-        contractsList.forEach((k ,v ) -> pays.put(k , v.getSumOfPayments()));
-        return pays;
+        HashMap<Integer, Integer> cons = new HashMap<>();
+        contractsList.forEach((k ,v ) -> cons.put(k , v.getSumOfPayments()));
+        return cons;
+    }
+
+    public ArrayList<Integer> getListOfAllPayments(){
+        ArrayList<ArrayList<Integer>> pays = new ArrayList<>();
+        contractsList.forEach((k ,v ) -> pays.add(v.getListOfPayments()));
+        ArrayList<Integer> payments = new ArrayList<>();
+        for (int i = 0; i < pays.size(); i++){
+            payments.addAll(pays.get(i));
+        }
+        return payments;
     }
 }
