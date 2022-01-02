@@ -113,4 +113,27 @@ public class ContractsTests extends Assert{
 
         assertEquals(contracts, contractsList.getListOfContractsWithPayments());
     }
+    @Test
+    public void getListOfAllPayments_getListOfAllPayments_gotListOfAllPayments(){
+        ContractManager contractsList = ContractManager.create();
+        contractsList.addContract(1, 20220101);
+        contractsList.registerDocument(11, 1, DocType.BankOrder, 1, 20220101);
+        contractsList.registerDocument(22, 2, DocType.BankOrder, 1, 20220101);
+        contractsList.registerDocument(33, 3, DocType.BankOrder, 1, 20220101);
+
+        contractsList.addContract(2, 20220101);
+        contractsList.registerDocument(1, 1, DocType.BankOrder, 2, 20220101);
+        contractsList.registerDocument(2, 2, DocType.BankOrder, 2, 20220101);
+        contractsList.registerDocument(3, 3, DocType.BankOrder, 2, 20220101);
+
+        ArrayList<Integer> pays = new ArrayList<>();
+        pays.add(11);
+        pays.add(22);
+        pays.add(33);
+        pays.add(1);
+        pays.add(2);
+        pays.add(3);
+
+        assertEquals(pays, contractsList.getListOfAllPayments());
+    }
 }
