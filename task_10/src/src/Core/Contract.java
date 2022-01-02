@@ -18,4 +18,8 @@ public class Contract {
     public int getDocumentsListSize(){
         return docsList.size();
     }
+
+    public int getSumOfPayments(){
+        return 0;
+    }
 }
