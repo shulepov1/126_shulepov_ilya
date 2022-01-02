@@ -27,7 +27,7 @@ public class ContractManager {
         return contractsList.size();
     }
 
-    public void registerDocument(int sum, int number, String docType, int contractNumber, int date){
+    public void registerDocument(int sum, int number, DocType docType, int contractNumber, int date){
         contractsList.get(contractNumber).registerDocument(sum, number, docType, date);
     }
 }

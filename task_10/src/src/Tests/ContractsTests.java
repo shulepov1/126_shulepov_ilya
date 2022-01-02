@@ -19,7 +19,10 @@ public class ContractsTests extends Assert{
     public void registerDocument_RegisterDocumentToContract_DocumentRegistered(){
         ContractManager contractsList = ContractManager.create();
         contractsList.addContract(1, 20220101);
-        contractsList.registerDocument(100, 1, "DocumentType", 1, 20220101);
+        contractsList.addContract(2, 20770202);
+        contractsList.registerDocument(100, 1, DocType.BankOrder, 1, 20220101);
+        contractsList.registerDocument(222, 1, DocType.PaymentOrder, 2, 20770202);
         assertEquals(1, contractsList.getContractsList().get(1).getDocumentsListSize());
+        assertEquals(1, contractsList.getContractsList().get(2).getDocumentsListSize());
     }
 }
