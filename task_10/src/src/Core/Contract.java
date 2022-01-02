@@ -11,7 +11,9 @@ public class Contract {
     }
 
     public void registerDocument(int sum, int number, DocType docType, int date){
-        docsList.put(number, new Doc(sum, docType, date));
+        if (sum > 0 && number > 0 && String.valueOf(date).length() == 8) {
+            docsList.put(number, new Doc(sum, docType, date));
+        }
     }
     public int getDocumentsListSize(){
         return docsList.size();
