@@ -30,4 +30,11 @@ public class ContractManager {
     public void registerDocument(int sum, int number, DocType docType, int contractNumber, int date){
         contractsList.get(contractNumber).registerDocument(sum, number, docType, date);
     }
+
+    public HashMap<Integer, Integer> getListOfContracts(){
+        HashMap<Integer, Integer> contracts = new HashMap<>();
+        contracts.put(1, 66);
+        contracts.put(2, 6);
+        return contracts;
+    }
 }

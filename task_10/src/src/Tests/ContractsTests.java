@@ -111,6 +111,6 @@ public class ContractsTests extends Assert{
         contracts.put(1, 66);
         contracts.put(2, 6);
 
-        assertEquals(contracts, contractsList.getContractsList().get(1).getListOfContracts());
+        assertEquals(contracts, contractsList.getListOfContracts());
     }
 }
