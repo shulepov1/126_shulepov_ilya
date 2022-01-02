@@ -26,4 +26,10 @@ public class Contract {
     public int getSumOfPayments(){
         return summary;
     }
+    public void deletePayment(int num, int contractNum, int date){
+
+    }
+    public int getAmountOfPayments(){
+        return 0;
+    }
 }

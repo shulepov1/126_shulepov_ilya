@@ -48,7 +48,7 @@ public class ContractsTests extends Assert{
         ContractManager contractsList = ContractManager.create();
         contractsList.addContract(1, 20220101);
         contractsList.registerDocument(500, 1, DocType.BankOrder, 1, 20220101);
-        contractsList.deletePayment(1, 1, 20220101);
+        contractsList.getContractsList().get(1).deletePayment(1, 1, 20220101);
         assertEquals(0, contractsList.getContractsList().get(1).getAmountOfPayments());
     }
 }
