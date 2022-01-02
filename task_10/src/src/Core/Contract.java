@@ -26,10 +26,12 @@ public class Contract {
     public int getSumOfPayments(){
         return summary;
     }
+
     public void deletePayment(int num, int contractNum, int date){
         docsList.remove(num);
         count--;
     }
+
     public int getAmountOfPayments(){
         return count;
     }
