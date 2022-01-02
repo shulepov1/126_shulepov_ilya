@@ -48,7 +48,32 @@ public class ContractsTests extends Assert{
         ContractManager contractsList = ContractManager.create();
         contractsList.addContract(1, 20220101);
         contractsList.registerDocument(500, 1, DocType.BankOrder, 1, 20220101);
+        contractsList.registerDocument(133, 2, DocType.BankOrder, 1, 20220101);
+        contractsList.registerDocument(333, 3, DocType.BankOrder, 1, 20220101);
+
         contractsList.getContractsList().get(1).deletePayment(1, 1, 20220101);
+        contractsList.getContractsList().get(1).deletePayment(2, 1, 20220101);
+        contractsList.getContractsList().get(1).deletePayment(3, 1, 20220101);
         assertEquals(0, contractsList.getContractsList().get(1).getAmountOfPayments());
+    }
+    @Test
+    public void deletePayment_deletePayment_AmountOfPaymentsEqualsTheRightNumber(){
+        ContractManager contractsList = ContractManager.create();
+        contractsList.addContract(1, 20220101);
+        contractsList.registerDocument(500, 1, DocType.BankOrder, 1, 20220101);
+        contractsList.registerDocument(133, 2, DocType.BankOrder, 1, 20220101);
+        contractsList.registerDocument(333, 3, DocType.BankOrder, 1, 20220101);
+
+        contractsList.addContract(2, 20220101);
+        contractsList.registerDocument(11, 1, DocType.BankOrder, 2, 20220101);
+        contractsList.registerDocument(22, 2, DocType.BankOrder, 2, 20220101);
+        contractsList.registerDocument(33, 3, DocType.BankOrder, 2, 20220101);
+
+        contractsList.getContractsList().get(1).deletePayment(1, 1, 20220101);
+        assertEquals(2, contractsList.getContractsList().get(1).getAmountOfPayments());
+
+        contractsList.getContractsList().get(2).deletePayment(3, 1, 20220101);
+        contractsList.getContractsList().get(2).deletePayment(1, 1, 20220101);
+        assertEquals(1, contractsList.getContractsList().get(2).getAmountOfPayments());
     }
 }
