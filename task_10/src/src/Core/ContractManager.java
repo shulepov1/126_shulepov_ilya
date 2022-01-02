@@ -1,6 +1,9 @@
 package Core;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 public class ContractManager {
     private HashMap<Integer, Contract> contractsList;
@@ -31,10 +34,9 @@ public class ContractManager {
         contractsList.get(contractNumber).registerDocument(sum, number, docType, date);
     }
 
-    public HashMap<Integer, Integer> getListOfContracts(){
-        HashMap<Integer, Integer> contracts = new HashMap<>();
-        contracts.put(1, 66);
-        contracts.put(2, 6);
-        return contracts;
+    public HashMap<Integer, Integer> getListOfContractsWithPayments(){
+        HashMap<Integer, Integer> pays = new HashMap<>();
+        contractsList.forEach((k ,v ) -> pays.put(k , v.getSumOfPayments()));
+        return pays;
     }
 }

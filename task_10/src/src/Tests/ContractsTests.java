@@ -103,14 +103,14 @@ public class ContractsTests extends Assert{
         contractsList.registerDocument(33, 3, DocType.BankOrder, 1, 20220101);
 
         contractsList.addContract(2, 20220101);
-        contractsList.registerDocument(1, 1, DocType.BankOrder, 1, 20220101);
-        contractsList.registerDocument(2, 2, DocType.BankOrder, 1, 20220101);
-        contractsList.registerDocument(3, 3, DocType.BankOrder, 1, 20220101);
+        contractsList.registerDocument(1, 1, DocType.BankOrder, 2, 20220101);
+        contractsList.registerDocument(2, 2, DocType.BankOrder, 2, 20220101);
+        contractsList.registerDocument(3, 3, DocType.BankOrder, 2, 20220101);
 
         HashMap<Integer, Integer> contracts = new HashMap<>();
         contracts.put(1, 66);
         contracts.put(2, 6);
 
-        assertEquals(contracts, contractsList.getListOfContracts());
+        assertEquals(contracts, contractsList.getListOfContractsWithPayments());
     }
 }
