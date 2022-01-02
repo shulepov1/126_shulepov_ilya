@@ -1,5 +1,6 @@
 package Core;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Contract {
@@ -34,5 +35,13 @@ public class Contract {
 
     public int getAmountOfPayments(){
         return count;
+    }
+
+    public ArrayList<Integer> getListOfPayments(){
+    ArrayList<Integer> pays = new ArrayList<>();
+    pays.add(11);
+    pays.add(22);
+    pays.add(33);
+    return pays;
     }
 }
