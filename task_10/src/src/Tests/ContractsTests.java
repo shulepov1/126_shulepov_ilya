@@ -31,4 +31,16 @@ public class ContractsTests extends Assert{
         contractsList.addContract(1, 20220101);
         assertEquals(0, contractsList.getContractsList().get(1).getSumOfPayments());
     }
+    @Test
+    public void getSum_getSumOfPaymentsOfSpecificContract_sumEquals1000(){
+        ContractManager contractsList = ContractManager.create();
+        contractsList.addContract(1, 20220101);
+        contractsList.registerDocument(500, 1, DocType.BankOrder, 1, 20220101);
+        contractsList.registerDocument(500, 1, DocType.BankOrder, 1, 20220101);
+        contractsList.addContract(2, 20220101);
+        contractsList.registerDocument(999, 1, DocType.BankOrder, 2, 20220101);
+        contractsList.registerDocument(1, 1, DocType.BankOrder, 2, 20220101);
+        assertEquals(1000, contractsList.getContractsList().get(1).getSumOfPayments());
+        assertEquals(1000, contractsList.getContractsList().get(2).getSumOfPayments());
+    }
 }
