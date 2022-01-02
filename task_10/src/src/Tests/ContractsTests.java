@@ -94,4 +94,23 @@ public class ContractsTests extends Assert{
 
         assertEquals(pays, contractsList.getContractsList().get(1).getListOfPayments());
     }
+    @Test
+    public void getContracts_getListOfContractsWithTheirTotalSum_gotListOfContracts(){
+        ContractManager contractsList = ContractManager.create();
+        contractsList.addContract(1, 20220101);
+        contractsList.registerDocument(11, 1, DocType.BankOrder, 1, 20220101);
+        contractsList.registerDocument(22, 2, DocType.BankOrder, 1, 20220101);
+        contractsList.registerDocument(33, 3, DocType.BankOrder, 1, 20220101);
+
+        contractsList.addContract(2, 20220101);
+        contractsList.registerDocument(1, 1, DocType.BankOrder, 1, 20220101);
+        contractsList.registerDocument(2, 2, DocType.BankOrder, 1, 20220101);
+        contractsList.registerDocument(3, 3, DocType.BankOrder, 1, 20220101);
+
+        HashMap<Integer, Integer> contracts = new HashMap<>();
+        contracts.put(1, 66);
+        contracts.put(2, 6);
+
+        assertEquals(contracts, contractsList.getContractsList().get(1).getListOfContracts());
+    }
 }
