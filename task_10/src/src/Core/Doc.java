@@ -10,4 +10,8 @@ public class Doc {
         this.docType = docType;
         this.date = date;
     }
+
+    public int getSum(){
+        return sum;
+    }
 }

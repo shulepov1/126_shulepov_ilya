@@ -39,9 +39,9 @@ public class Contract {
 
     public ArrayList<Integer> getListOfPayments(){
     ArrayList<Integer> pays = new ArrayList<>();
-    pays.add(11);
-    pays.add(22);
-    pays.add(33);
+    for (Doc doc : docsList.values()) {
+        pays.add(doc.getSum());
+    }
     return pays;
     }
 }
