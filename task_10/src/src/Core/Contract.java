@@ -28,7 +28,7 @@ public class Contract {
         return summary;
     }
 
-    public void deletePayment(int num, int contractNum, int date){
+    public void deletePayment(int num){
         docsList.remove(num);
         count--;
     }

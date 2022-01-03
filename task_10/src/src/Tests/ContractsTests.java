@@ -54,9 +54,9 @@ public class ContractsTests extends Assert{
         contractsList.registerDocument(133, 2, DocType.BankOrder, 1, 20220101);
         contractsList.registerDocument(333, 3, DocType.BankOrder, 1, 20220101);
 
-        contractsList.getContractsList().get(1).deletePayment(1, 1, 20220101);
-        contractsList.getContractsList().get(1).deletePayment(2, 1, 20220101);
-        contractsList.getContractsList().get(1).deletePayment(3, 1, 20220101);
+        contractsList.getContractsList().get(1).deletePayment(1);
+        contractsList.getContractsList().get(1).deletePayment(2);
+        contractsList.getContractsList().get(1).deletePayment(3);
         assertEquals(0, contractsList.getContractsList().get(1).getAmountOfPayments());
     }
     @Test
@@ -72,11 +72,11 @@ public class ContractsTests extends Assert{
         contractsList.registerDocument(22, 2, DocType.BankOrder, 2, 20220101);
         contractsList.registerDocument(33, 3, DocType.BankOrder, 2, 20220101);
 
-        contractsList.getContractsList().get(1).deletePayment(1, 1, 20220101);
+        contractsList.getContractsList().get(1).deletePayment(1);
         assertEquals(2, contractsList.getContractsList().get(1).getAmountOfPayments());
 
-        contractsList.getContractsList().get(2).deletePayment(3, 1, 20220101);
-        contractsList.getContractsList().get(2).deletePayment(1, 1, 20220101);
+        contractsList.getContractsList().get(2).deletePayment(3);
+        contractsList.getContractsList().get(2).deletePayment(1);
         assertEquals(1, contractsList.getContractsList().get(2).getAmountOfPayments());
     }
     @Test

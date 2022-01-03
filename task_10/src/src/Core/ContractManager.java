@@ -15,8 +15,13 @@ public class ContractManager {
     }
 
     public void addContract(Integer number, Integer date){
-        if (number != null) {
+        if (number > 0 && String.valueOf(date).length() == 8) {
             contractsList.put(number, new Contract(date));
+            System.out.println("Договор " + number + " был успешно заключён.");
+            System.out.println();
+        }
+        else {
+            System.out.println("Введённые данные некорректны.");
         }
     }
 
@@ -29,7 +34,14 @@ public class ContractManager {
     }
 
     public void registerDocument(int sum, int number, DocType docType, int contractNumber, int date){
-        contractsList.get(contractNumber).registerDocument(sum, number, docType, date);
+        if (sum > 0 && number > 0 && contractNumber > 0 && String.valueOf(date).length() == 8) {
+            contractsList.get(contractNumber).registerDocument(sum, number, docType, date);
+            System.out.println(docType + " на сумму " + sum + " был успешно произведён");
+            System.out.println();
+        }
+        else {
+            System.out.println("Введённые данные некоректны");
+        }
     }
 
     public HashMap<Integer, Integer> getListOfContractsWithPayments(){
