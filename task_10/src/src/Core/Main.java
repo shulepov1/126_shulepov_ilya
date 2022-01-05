@@ -13,42 +13,78 @@ public class Main {
         callMenu();
         int n = sc.nextInt();
         if (n == 1){
-            System.out.println("Введите номер договора и дату");
-            contractsList.addContract(sc.nextInt(), sc.nextInt());
+            System.out.println("Введите номер договора и дату (дата состоит из 8 цифр подряд ГГГГММДД)");
+            try {
+                contractsList.addContract(sc.nextInt(), sc.nextInt());
+            }
+            catch (Exception e){
+                System.out.println("Формат введённых данных неверен");
+            }
+            System.out.println();
             call(contractsList);
         }
         else if (n == 2){
-            System.out.println("Введите сумму платежа, номер документа, тип документа(BankOrder или PaymentOrder, номер договора" +
-                    " и дату");
-            contractsList.registerDocument(sc.nextInt(), sc.nextInt(), DocType.valueOf(sc.next()), sc.nextInt(), sc.nextInt());
+            try {
+                System.out.println("Введите сумму платежа, номер документа, тип документа(BankOrder или PaymentOrder, номер договора" +
+                        " и дату");
+                contractsList.registerDocument(sc.nextInt(), sc.nextInt(), DocType.valueOf(sc.next()), sc.nextInt(), sc.nextInt());
+            }
+            catch (Exception e ){
+                System.out.println("Формат введённых данных неверен");
+            }
+            System.out.println();
             call(contractsList);
         }
         else if (n == 3){
-            System.out.println("Введите номер договора");
-            System.out.println(contractsList.getContractsList().get(sc.nextInt()).getListOfPayments());
+            try {
+                System.out.println("Введите номер договора");
+                System.out.println(contractsList.getContractsList().get(sc.nextInt()).getListOfPayments());
+            }
+            catch (Exception e){
+                System.out.println("Формат введённых данных неверен");
+            }
             System.out.println();
             call(contractsList);
         }
         else if (n == 4){
-            System.out.println("Введите номер договора");
-            System.out.println(contractsList.getContractsList().get(sc.nextInt()).getSumOfPayments());
+            try {
+                System.out.println("Введите номер договора");
+                System.out.println(contractsList.getContractsList().get(sc.nextInt()).getSumOfPayments());
+            }
+            catch (Exception e){
+                System.out.println("Формат введённых данных неверен");
+            }
             System.out.println();
             call(contractsList);
         }
         else if (n == 5){
-            System.out.println("Введите номер договора и номер платежа");
-            contractsList.getContractsList().get(sc.nextInt()).deletePayment(sc.nextInt());
-            System.out.println("Платёж был успешно удалён");
+            try {
+                System.out.println("Введите номер договора и номер платежа");
+                contractsList.getContractsList().get(sc.nextInt()).deletePayment(sc.nextInt());
+            }
+            catch (Exception e){
+                System.out.println("Формат введённых данных неверен");
+            }
             System.out.println();
             call(contractsList);
         }
         else if (n == 6){
-            System.out.println(contractsList.getListOfContractsWithPayments());
+            try {
+                System.out.println(contractsList.getListOfContractsWithPayments());
+            }
+            catch (Exception e){
+                System.out.println("Формат введённых данных неверен");
+            }
             System.out.println();
             call(contractsList);
         }
         else if (n == 7){
-            System.out.println(contractsList.getListOfAllPayments());
+            try {
+                System.out.println(contractsList.getListOfAllPayments());
+            }
+            catch (Exception e){
+                System.out.println(contractsList.getListOfAllPayments());
+            }
             System.out.println();
             call(contractsList);
         }

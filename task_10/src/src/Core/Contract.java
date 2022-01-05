@@ -14,11 +14,11 @@ public class Contract {
     }
 
     public void registerDocument(int sum, int number, DocType docType, int date){
-        if (sum > 0 && number > 0 && String.valueOf(date).length() == 8) {
-            docsList.put(number, new Doc(sum, docType, date));
-            summary = summary + sum;
-            count++;
-        }
+            if (sum > 0 && number > 0 && String.valueOf(date).length() == 8) {
+                docsList.put(number, new Doc(sum, docType, date));
+                summary = summary + sum;
+                count++;
+            }
     }
     public int getDocumentsListSize(){
         return docsList.size();
@@ -29,9 +29,15 @@ public class Contract {
     }
 
     public void deletePayment(int num){
-        summary = summary - docsList.get(num).getSum();
-        docsList.remove(num);
-        count--;
+        if (!docsList.containsKey(num)){
+            System.out.println("Документа с таким номером не существует");
+        }
+        else {
+            summary = summary - docsList.get(num).getSum();
+            docsList.remove(num);
+            count--;
+            System.out.println("Платёж был успешно удалён");
+        }
     }
 
     public int getAmountOfPayments(){
