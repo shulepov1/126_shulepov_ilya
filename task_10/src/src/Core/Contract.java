@@ -20,6 +20,7 @@ public class Contract {
                 count++;
             }
     }
+
     public int getDocumentsListSize(){
         return docsList.size();
     }
