@@ -1,9 +1,9 @@
-package Monsters;
+package Content;
 
 import java.io.*;
 import java.util.*;
 
-public class SuperMonster {
+public class Monster {
     public void setMonster(String str) throws IOException {
         Scanner sc = new Scanner(new FileReader(".//config//monsters.txt"));
         int dmg;

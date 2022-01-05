@@ -11,22 +11,14 @@ public class Game {
     VisibilityManager vm = new VisibilityManager(ui);
     Story story = new Story(this, ui, vm, player);
     Story.SoundEffect se = new Story.SoundEffect();
-
-
     String nextPosition1, nextPosition2, nextPosition3, nextPosition4;
 
-    public static void main(String[] args) throws IOException {
-
-        new Game();
-    }
-
-    public Game() throws IOException {
-
+    public void runGame(){
         ui.createUI(cHandler);
         story.defaultSetup();
         vm.showTitleScreen();
-
     }
+
     public class ChoiceHandler implements ActionListener {
 
         public void actionPerformed(ActionEvent event) {
@@ -34,36 +26,48 @@ public class Game {
             String yourChoice = event.getActionCommand();
 
             switch (yourChoice) {
-                case "start" : vm.titleToTown(); story.introduction(); se.setFile(story.clickSound); se.play(); break;
-                case "c1" :
+                case "start" -> {
+                    vm.titleToTown();
+                    story.introduction();
+                    se.setFile(story.clickSound);
+                    se.play();
+                }
+                case "c1" -> {
                     try {
                         story.selectPosition(nextPosition1);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    se.setFile(story.clickSound); se.play(); break;
-                case "c2" :
+                    se.setFile(story.clickSound);
+                    se.play();
+                }
+                case "c2" -> {
                     try {
                         story.selectPosition(nextPosition2);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    se.setFile(story.clickSound); se.play(); break;
-                case "c3" :
+                    se.setFile(story.clickSound);
+                    se.play();
+                }
+                case "c3" -> {
                     try {
                         story.selectPosition(nextPosition3);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    se.setFile(story.clickSound); se.play(); break;
-                case "c4" :
+                    se.setFile(story.clickSound);
+                    se.play();
+                }
+                case "c4" -> {
                     try {
                         story.selectPosition(nextPosition4);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    se.setFile(story.clickSound); se.play(); break;
-
+                    se.setFile(story.clickSound);
+                    se.play();
+                }
             }
         }
     }

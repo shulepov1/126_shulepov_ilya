@@ -1,7 +1,7 @@
 package GameCore;
 
-import Monsters.*;
-import Weapons.*;
+import Content.Monster;
+import Content.Weapon;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -16,7 +16,7 @@ public class Story {
     UI ui;
     VisibilityManager vm;
     Player player;
-    SuperMonster monster = new SuperMonster();
+    Monster monster = new Monster();
     int silverRing;
     int wagonPotion;
     int knightCloak;
@@ -32,7 +32,18 @@ public class Story {
     int fountainEvent;
 
     String clickSound = ".//res//click.wav";
-    String applause = ".//res//applause.wav";
+    String applause = ".//res//victory.wav";
+    String blacksmith = ".//res//blacksmith.wav";
+    String walkingOnGlass = ".//res//walkingOnGlass.wav";
+    String swamp = ".//res//swamp.wav";
+    String river = ".//res//river.wav";
+    String church = ".//res//church.wav";
+    String square = ".//res//square.wav";
+    String tavern = ".//res//tavern.wav";
+    String rats = ".//res//rats.wav";
+    String boss = ".//res//boss.wav";
+    String win = ".//res//win.wav";
+    String gameOver = ".//res//gameOver.wav";
     public Story(Game g, UI userInterface, VisibilityManager vManager, Player player1) {
 
         game = g;
@@ -61,20 +72,20 @@ public class Story {
     }
 
     public void defaultSetup() {
-        player.hp = 10;
-        ui.hpNumberLabel.setText("" + player.hp);
+        player.sethp(10);
+        ui.hpNumberLabel.setText("" + player.gethp());
 
-        player.currentWeapon = new SuperWeapon();
+        player.setCurrentWeapon(new Weapon());
         try {
-            player.currentWeapon.setWeapon("Нож");
+            player.getCurrentWeapon().setWeapon("Нож");
         } catch (IOException e) {
             e.printStackTrace();
         }
-        
-        ui.weaponNameLabel.setText(player.currentWeapon.getName());
 
-        player.coin = 0;
-        ui.coinNameLabel.setText("" + player.coin);
+        ui.weaponNameLabel.setText(player.getCurrentWeapon().getName());
+
+        player.setCoin(0);
+        ui.coinNameLabel.setText("" + player.getCoin());
 
         silverRing = 0;
         wagonPotion = 0;
@@ -232,19 +243,19 @@ public class Story {
     }
     public void attackGuard(){
         ui.mainTextArea.setText("Стражник: Не глупи.\nСтражник слишком силён.\n\nВы получили 3 damage");
-        player.hp = player.hp - 3;
+        player.sethp(player.gethp() - 3);
         //если есть шанс умереть:
-        if (player.hp < 1) {
+        if (player.gethp() < 1) {
             lose();
-            player.hp = 0;
-            ui.hpNumberLabel.setText("" + player.hp);
+            player.sethp(0);
+            ui.hpNumberLabel.setText("" + player.gethp());
         }
         else {
             game.nextPosition1 = "townGate";
             game.nextPosition2 = "";
             game.nextPosition3 = "";
             game.nextPosition4 = "";
-            ui.hpNumberLabel.setText("" + player.hp);
+            ui.hpNumberLabel.setText("" + player.gethp());
             ui.choice1.setText(">");
             ui.choice2.setText("");
             ui.choice3.setText("");
@@ -252,6 +263,7 @@ public class Story {
         }
     }
     public void river() {
+        se.setFile(river); se.play();
         ui.mainTextArea.setText("Перед вами широкая бурная река. На каменистом берегу привязана лодка, но если вы попытаетесь переплыть, вас снесёт течением в неизвестность. " +
                 "Вдали на горизонте виднеется другой берег, к нему причалена странное деревянное судно, издалека вы замечаете на нем горящие красные бумажные фонарики. Возле той лодки" +
                 " никого нет. На вашем же берегу вы замечаете сломанную удочку.");
@@ -315,14 +327,14 @@ public class Story {
     public void simon(){
         ui.mainTextArea.setText("Незнакомец: Слушай, ты не видел нигде моего товарища? Он был одет в кимоно, ты бы его сразу узнал? Ну да ладно. Мы очутились на этом острове 20 лет назад, своего напарника" +
                 "я не видел уже лет 15. Ну да ладно, думаю ему это больше не понадобится, возмьи в качестве подарка.\n\n(За обнаружение этого места вы получаете 100 HP и новое оружие!)");
-        player.hp = player.hp + 100;
-        ui.hpNumberLabel.setText(""+player.hp);
+        player.sethp(player.gethp() + 100);
+        ui.hpNumberLabel.setText(""+player.gethp());
         try {
-            player.currentWeapon.setWeapon("Вилка");
+            player.getCurrentWeapon().setWeapon("Вилка");
         } catch (IOException e) {
             e.printStackTrace();
         }
-        ui.weaponNameLabel.setText(player.currentWeapon.getName());
+        ui.weaponNameLabel.setText(player.getCurrentWeapon().getName());
         ui.choice1.setText("Вернуться на тот берег");
         ui.choice2.setText("");
         ui.choice3.setText("");
@@ -334,7 +346,7 @@ public class Story {
         game.nextPosition4 = "";
     }
     public void fishing() {
-        if (player.hp < 50) {
+        if (player.gethp() < 50) {
             int i = new java.util.Random().nextInt(100);
             if (i > 0 && i < 30) {
                 ui.mainTextArea.setText("К вашему поплавку приближается след от плавника рыбы, он становится все быстрее и быстрее. В нужный момент вы вытаскиваете удочку - но увы: мимо!");
@@ -361,8 +373,8 @@ public class Story {
             } else if (i > 60 && i < 90) {
                 ui.mainTextArea.setText("Огромная рыба подплывает к вам так близко, что вы можете разглядеть её собственными глазами. Вы хватаете её собственной рукой, но она даже не сопротивлятся." +
                         "\n\n(Вы пожарили и съели рыбу. Ваше HP пополнилось на 5)");
-                player.hp = player.hp + 5;
-                ui.hpNumberLabel.setText("" + player.hp);
+                player.sethp(player.gethp() + 5);
+                ui.hpNumberLabel.setText("" + player.gethp());
                 ui.choice1.setText("Порыбачить снова");
                 ui.choice2.setText("Вернуться обратно");
                 ui.choice3.setText("");
@@ -375,8 +387,8 @@ public class Story {
             } else if (i > 90 && i < 95) {
                 ui.mainTextArea.setText("Вы устаёте от постоянных неудач и со всей силы кидаете удочку в воду как копьё. Через несколько секунд вы замечаете всплывшее пятно крови - вы подплыва" +
                         "ете и это оказывается огромный угорь. Вы с удовольствием съедаете его!\n\n(Ваше HP пополнилось на 15!)");
-                player.hp = player.hp + 15;
-                ui.hpNumberLabel.setText("" + player.hp);
+                player.sethp(player.gethp() + 15);
+                ui.hpNumberLabel.setText("" + player.gethp());
                 ui.choice1.setText("Порыбачить снова");
                 ui.choice2.setText("Вернуться обратно");
                 ui.choice3.setText("");
@@ -443,8 +455,8 @@ public class Story {
         if (whaleTreasure == 0) {
             ui.mainTextArea.setText("Очередной тупик: на этот раз в конце стоит светящийся деревянный ящик. Вы подходите поближе - это оказывается пиратский ящик с сокровищами и лежащей на нём " +
                     "соломенной шляпой. Выкинув шляпу, вы жадно набиваете карманы драгоценностями. (Вы находите кучу золота - в эквиваленте 100 монет!)");
-            player.coin = player.coin + 100;
-            ui.coinNameLabel.setText(""+player.coin);
+            player.setCoin(player.getCoin() + 100);
+            ui.coinNameLabel.setText(""+player.getCoin());
             ui.choice1.setText("Вернуться");
             ui.choice2.setText("");
             ui.choice3.setText("");
@@ -495,6 +507,7 @@ public class Story {
     }
     public void wagonSearch() {
         if (wagonPotion == 0) {
+            se.setFile(walkingOnGlass); se.play();
             ui.mainTextArea.setText("Зайдя внутрь, вы ощущаете под ногами хруст стекла. В воздухе стоит невыносимый запах. [Похоже на какую-то лабораторию] - думаете вы и краем глаза " +
                     "замечаете уцелевшую колбочку на столе. На ней ничего не написано.");
             ui.choice1.setText("Отпить из неё");
@@ -519,10 +532,10 @@ public class Story {
     }
     public void wagonPotion() {
         ui.mainTextArea.setText("Вы чувстуете прилив сил и бодрости.\n\n(Ваше здоровье увеличилось на 10 HP!)\n\nНа полу среди стекла вы различаете разбросанные монеты.\n\n(Вы нашли 10 монет!)");
-        player.hp = player.hp + 10;
-        ui.hpNumberLabel.setText("" + player.hp);
-        player.coin = player.coin + 10;
-        ui.coinNameLabel.setText("" + player.coin);
+        player.sethp(player.gethp() + 10);
+        ui.hpNumberLabel.setText("" + player.gethp());
+        player.setCoin(player.getCoin() + 10);
+        ui.coinNameLabel.setText("" + player.getCoin());
         ui.choice1.setText("Какая удача");
         ui.choice2.setText("");
         ui.choice3.setText("");
@@ -561,6 +574,7 @@ public class Story {
         }
     }
     public void swampKnight() throws IOException {
+        se.setFile(swamp); se.play();
         monster.setMonster("Умирающий Рыцарь");
         ui.mainTextArea.setText("Сумев пробраться через трясину, вы ощущаете, что туман начал сгущаться. Вы продолжаете идти вперёд и вдруг видите перед собой ту самую фигуру. " +
                 "Ей оказывается рыцарь. Из его шлема и доспехов сочится кровь. Завидев вас он поворачивает голову в вашу сторону.\nВы замечаете, что в его грудь воткнут кинжал. " +
@@ -579,12 +593,12 @@ public class Story {
     }
     public void swampMinusHP(){
 
-        player.hp = player.hp - 20;
-        ui.hpNumberLabel.setText(""+player.hp);
-        if (player.hp < 1) {
+        player.sethp(player.gethp() - 20);
+        ui.hpNumberLabel.setText(""+player.gethp());
+        if (player.gethp() < 1) {
             lose();
-            player.hp = 0;
-            ui.hpNumberLabel.setText("" + player.hp);
+            player.sethp(0);
+            ui.hpNumberLabel.setText("" + player.gethp());
         }
         else {
             ui.mainTextArea.setText("Пройдя чуть дальше вы забредаете в болото. Обойти его невозможно, но впереди в тумане вы видите одинокий силуэт. Он сидит и опирается спиной на дерево.");
@@ -647,6 +661,7 @@ public class Story {
         game.nextPosition4 = "";
     }
     public void square(){
+        se.setFile(square); se.play();
         ui.mainTextArea.setText("Вы выходите на городскую площадь. Прямо перед собой вы видите длинную улицу, в конце которой возвышается гигантский Королевский Замок. Взглянув на лево, " +
                 "открывается вид на жилые районы города. Судя по облику зданий - район богатый. Повернув голову направо, ваш взгляд окаменевает: разрушенные дома, грязные улицы и посреди этого " +
                 "торжества небольшой двухэтажный трактир.");
@@ -694,6 +709,7 @@ public class Story {
         game.nextPosition4 = "";
     }
     public void richBlock() {
+        se.setFile(blacksmith); se.play();
         ui.mainTextArea.setText("Вы очутились в длинной узкой улочке. Вдали слышится повторяющийся звук удара по металлу. Рядом с собой вы замечаете лавку, на " +
                 "улицу выставлены главные товары - деревянные гробы и кресты.");
         ui.choice1.setText("Зайти в лавку");
@@ -766,7 +782,8 @@ public class Story {
         game.nextPosition4 = "";
     }
     public void blacksmith(){
-        ui.mainTextArea.setText("Здравствуй, давненько ко мне не заходил кто-то не из стражи. Но я рад любому покупателю. Выбирай.");
+        ui.mainTextArea.setText("Здравствуй, давненько ко мне не заходил кто-то не из стражи. Но я рад любому покупателю. Я щедрый, поэтому можешь" +
+                "покупать любое оружие любое количество раз подряд, но при покупке старое придется отдать. Выбирай с умом");
 
         ui.choice1.setText("Щит (+50hp) - 20 зол.");
         ui.choice2.setText("Молот (max dmg 20) - 20 зол.");
@@ -779,12 +796,12 @@ public class Story {
         game.nextPosition4 = "weaponShop";
     }
     public void shield() {
-        if (player.coin >= 20) {
+        if (player.getCoin() >= 20) {
             ui.mainTextArea.setText("Вы купили щит.\n\n(Ваше HP увеличилось на 50!)");
-            player.hp = player.hp + 50;
-            ui.hpNumberLabel.setText("" + player.hp);
-            player.coin = player.coin - 20;
-            ui.coinNameLabel.setText("" + player.coin);
+            player.sethp(player.gethp() + 50);
+            ui.hpNumberLabel.setText("" + player.gethp());
+            player.setCoin(player.getCoin() - 20);
+            ui.coinNameLabel.setText("" + player.getCoin());
             ui.choice1.setText(">");
             ui.choice2.setText("");
             ui.choice3.setText("");
@@ -795,7 +812,7 @@ public class Story {
             game.nextPosition3 = "";
             game.nextPosition4 = "";
         }
-        else if (player.coin < 20) {
+        else if (player.getCoin() < 20) {
             ui.mainTextArea.setText("Извини, друг. У тебя не хватает монет.");
 
             ui.choice1.setText(">");
@@ -810,8 +827,8 @@ public class Story {
         }
     }
     public void hammer(){
-        if (player.coin >= 20) {
-            ui.mainTextArea.setText("Ваше оружие: " + player.currentWeapon.getName() + ".\nВы действительно хотите купить Молот?");
+        if (player.getCoin() >= 20) {
+            ui.mainTextArea.setText("Ваше оружие: " + player.getCurrentWeapon().getName() + ".\nВы действительно хотите купить Молот?");
 
             ui.choice1.setText("Да");
             ui.choice2.setText("Нет");
@@ -823,7 +840,7 @@ public class Story {
             game.nextPosition3 = "";
             game.nextPosition4 = "";
         }
-        else if (player.coin < 20) {
+        else if (player.getCoin() < 20) {
             ui.mainTextArea.setText("Извини, друг. У тебя не хватает монет.");
 
             ui.choice1.setText(">");
@@ -839,15 +856,15 @@ public class Story {
     }
     public void hammerOk(){
         try {
-            player.currentWeapon.setWeapon("Боевой Молот");
+            player.getCurrentWeapon().setWeapon("Боевой Молот");
         } catch (IOException e) {
             e.printStackTrace();
         }
         ui.mainTextArea.setText("Вы купили Молот!");
-        player.coin = player.coin - 20;
-        ui.coinNameLabel.setText("" + player.coin);
+        player.setCoin(player.getCoin() - 20);
+        ui.coinNameLabel.setText("" + player.getCoin());
 
-        ui.weaponNameLabel.setText(player.currentWeapon.getName());
+        ui.weaponNameLabel.setText(player.getCurrentWeapon().getName());
         ui.choice1.setText(">");
         ui.choice2.setText("");
         ui.choice3.setText("");
@@ -859,8 +876,8 @@ public class Story {
         game.nextPosition4 = "";
     }
     public void rapier(){
-        if (player.coin >= 30) {
-            ui.mainTextArea.setText("Ваше оружие: " + player.currentWeapon.getName() + ".\nВы действительно хотите купить Шпагу?");
+        if (player.getCoin() >= 30) {
+            ui.mainTextArea.setText("Ваше оружие: " + player.getCurrentWeapon().getName() + ".\nВы действительно хотите купить Шпагу?");
 
             ui.choice1.setText("Да");
             ui.choice2.setText("Нет");
@@ -872,7 +889,7 @@ public class Story {
             game.nextPosition3 = "";
             game.nextPosition4 = "";
         }
-        else if (player.coin < 30) {
+        else if (player.getCoin() < 30) {
             ui.mainTextArea.setText("Извини, друг. У тебя не хватает монет.");
 
             ui.choice1.setText(">");
@@ -888,14 +905,14 @@ public class Story {
     }
     public void rapierOk(){
         try {
-            player.currentWeapon.setWeapon("Шпага");
+            player.getCurrentWeapon().setWeapon("Шпага");
         } catch (IOException e) {
             e.printStackTrace();
         }
         ui.mainTextArea.setText("Вы купили Шпагу!");
-        player.coin = player.coin - 30;
-        ui.coinNameLabel.setText("" + player.coin);
-        ui.weaponNameLabel.setText(player.currentWeapon.getName());
+        player.setCoin(player.getCoin() - 30);
+        ui.coinNameLabel.setText("" + player.getCoin());
+        ui.weaponNameLabel.setText(player.getCurrentWeapon().getName());
         ui.choice1.setText(">");
         ui.choice2.setText("");
         ui.choice3.setText("");
@@ -935,6 +952,7 @@ public class Story {
 
     public void churchArea() throws IOException {
         if (witch == 0) {
+            se.setFile(church); se.play();
             monster.setMonster("Странная Женщина");
             ui.mainTextArea.setText("Подойдя к церкви, вы заходите внутрь.\n\nВнутри довольно светло из-за многочисленных витражных окон на стенах. Стоящие впереди десятки рядов скамей пусты, кроме одной." +
                     " Вы подходите ближе и замечаете женщину, молящуюся с закрытыми глазами. Она шепчет что-то на непонятном вам языке. Решив не досаждать её, вы идете обратно к выходу. Вдруг двери церкви закрываются. Вы оборачиваетесь и видите ту же женщину - " +
@@ -966,6 +984,8 @@ public class Story {
     }
     public void mansion(){
         if (fountainEvent == 0){
+            player.setCoin(player.getCoin() + 20);
+            ui.coinNameLabel.setText("" + player.getCoin());
             ui.mainTextArea.setText("Поднясь вверх по тропе перед вами открывается захватывающий вид. Большой двух этажный особняк, огороженный невысоким заборчиком. " +
                     "Вы заходите во двор и подходите к высокому фонтану. По неясной причине вы заглядываете внутрь фонтана и достаёте оттуда горсть монет. \n\n(Вы находите 20 монет!)\n\nВозле фонтана на лавочке сидит пожилой мужчина. " +
                     "Он сидит к вам спиной, но его присутствие ощущается на расстоянии. Он медленно встаёт и поворачивается к вам. На его груди вы замечаете ту же эмблему, что носят солдаты. Ни успев" +
@@ -1011,7 +1031,7 @@ public class Story {
         game.nextPosition4 = "square";
     }
     public void fountainHostage(){
-        ui.mainTextArea.setText("Вы хватаете мужчину и пристявляете ему "+player.currentWeapon.getName()+" к горлу. Стража отступаете и вы сбегаете.");
+        ui.mainTextArea.setText("Вы хватаете мужчину и пристявляете ему "+player.getCurrentWeapon().getName()+" к горлу. Стража отступаете и вы сбегаете.");
 
         ui.choice1.setText(">");
         ui.choice2.setText("");
@@ -1037,6 +1057,7 @@ public class Story {
         game.nextPosition4 = "";
     }
     public void tavern(){
+        se.setFile(tavern); se.play();
         ui.mainTextArea.setText("Внутри таверны куча народу, все празднуют и веселятся, хотя никакого праздника сегодня нет. Краем уха вы улавливаете разговор двух мужчин в черной одежде, сидящих " +
                 "в дальнем углу." +
                 "\"Что не так с этим городом?\" \"Не знаю, но стража еще не обнаружила наш потайной ход в канализации под городом\" \"Надолго ли?\" ");
@@ -1113,6 +1134,7 @@ public class Story {
     }
     public void channelsRight() throws IOException {
         monster.setMonster("Гигантская Крыса");
+        se.setFile(rats); se.play();
         ui.mainTextArea.setText("Вы идёте по темному каналу. Вокруг слышится постоянное пищанье, но никого не видно. В один момент вы руками нащупываете тупик, а пищанье сзади становится всё громче и громче." +
                 " Вы оборачиваетесь и видите перед собой огромную крысу.");
 
@@ -1128,6 +1150,7 @@ public class Story {
     }
     public void castle() throws IOException {
         monster.setMonster("Глава Стражи");
+        se.setFile(boss); se.play();
         ui.mainTextArea.setText("Вы открываете люк и вылезаете из него. Оглядевшись вокруг вы понимаете, что вы позади трона самого короля! Он сейчас занят приемом гостей, сидя на самом троне." +
                 " Рядом с ним стоит мужчина в золотом доспехе и огромным мечом. Он замечает вас и приказывает обычным стражникам быстро увести его Величество в безопасное место, а сам приближается к вам.");
 
@@ -1214,7 +1237,7 @@ public class Story {
     }
     public void playerAttack() {
 
-        int playerDamage = new java.util.Random().nextInt(player.currentWeapon.getDamage());
+        int playerDamage = new java.util.Random().nextInt(player.getCurrentWeapon().getDamage());
         ui.mainTextArea.setText("Вы атаковали " + monster.getName() + " и нанесли " + playerDamage+ " damage");
         monster.sethp(monster.gethp() - playerDamage);
 
@@ -1284,25 +1307,28 @@ public class Story {
 
         ui.mainTextArea.setText(monster.getAttackMessage1()+ "\nВы получили " + monsterDamage+ " damage!");
 
-        player.hp = player.hp - monsterDamage;
-        ui.hpNumberLabel.setText("" + player.hp);
+        player.sethp(player.gethp() - monsterDamage);
+        ui.hpNumberLabel.setText("" + player.gethp());
 
         ui.choice1.setText(">");
         ui.choice2.setText("");
         ui.choice3.setText("");
         ui.choice4.setText("");
 
-        if (player.hp > 0) {
+        if (player.gethp() > 0) {
             game.nextPosition1 = "fight";
             game.nextPosition2 = "";
             game.nextPosition3 = "";
             game.nextPosition4 = "";
         }
-        else if (player.hp < 1) {
-            player.hp = 0;
-            ui.hpNumberLabel.setText("" + player.hp);
+        else if (player.gethp() < 1) {
+            player.sethp(0);
+            ui.hpNumberLabel.setText("" + player.gethp());
             if (monster.getName() == "Глава Стражи") {
-
+                game.nextPosition1 = "endingLose";
+                game.nextPosition2 = "";
+                game.nextPosition3 = "";
+                game.nextPosition4 = "";
             }
             else {
                 game.nextPosition1 = "lose";
@@ -1318,25 +1344,28 @@ public class Story {
 
         ui.mainTextArea.setText(monster.getAttackMessage2()+ "\nВы получили " + monsterDamage+ " damage!");
 
-        player.hp = player.hp - monsterDamage;
-        ui.hpNumberLabel.setText("" + player.hp);
+        player.sethp(player.gethp() - monsterDamage);
+        ui.hpNumberLabel.setText("" + player.gethp());
 
         ui.choice1.setText(">");
         ui.choice2.setText("");
         ui.choice3.setText("");
         ui.choice4.setText("");
 
-        if (player.hp > 0) {
+        if (player.gethp() > 0) {
             game.nextPosition1 = "fight";
             game.nextPosition2 = "";
             game.nextPosition3 = "";
             game.nextPosition4 = "";
         }
-        else if (player.hp < 1) {
-            player.hp = 0;
-            ui.hpNumberLabel.setText("" + player.hp);
+        else if (player.gethp() < 1) {
+            player.sethp(0);
+            ui.hpNumberLabel.setText("" + player.gethp());
             if (monster.getName() == "Глава Стражи") {
-
+                game.nextPosition1 = "endingLose";
+                game.nextPosition2 = "";
+                game.nextPosition3 = "";
+                game.nextPosition4 = "";
             }
             else {
                 game.nextPosition1 = "lose";
@@ -1352,23 +1381,23 @@ public class Story {
 
         ui.mainTextArea.setText(monster.getAttackMessage3()+ "\nВы получили " + monsterDamage+ " damage!");
 
-        player.hp = player.hp - monsterDamage;
-        ui.hpNumberLabel.setText("" + player.hp);
+        player.sethp(player.gethp() - monsterDamage);
+        ui.hpNumberLabel.setText("" + player.gethp());
 
         ui.choice1.setText(">");
         ui.choice2.setText("");
         ui.choice3.setText("");
         ui.choice4.setText("");
 
-        if (player.hp > 0) {
+        if (player.gethp() > 0) {
             game.nextPosition1 = "fight";
             game.nextPosition2 = "";
             game.nextPosition3 = "";
             game.nextPosition4 = "";
         }
-        else if (player.hp < 1) {
-            player.hp = 0;
-            ui.hpNumberLabel.setText("" + player.hp);
+        else if (player.gethp() < 1) {
+            player.sethp(0);
+            ui.hpNumberLabel.setText("" + player.gethp());
             if (monster.getName() == "Глава Стражи") {
                 game.nextPosition1 = "endingLose";
                 game.nextPosition2 = "";
@@ -1389,13 +1418,13 @@ public class Story {
                 "поэтому вы берёте только его меч и плащ. Только слепой примет вас за одного из рыцарей.\n\n(У вас новое оружие! : Рыцарский Меч [max dmg = 12])\n\n(Вы надели рыцарский плащ!)\n\n(Вы нашли 15 золотых!)");
         knightCloak = 1;
         try {
-            player.currentWeapon.setWeapon("Рыцарский Меч");
+            player.getCurrentWeapon().setWeapon("Рыцарский Меч");
         } catch (IOException e) {
             e.printStackTrace();
         }
-        ui.weaponNameLabel.setText(player.currentWeapon.getName());
-        player.coin = player.coin + 15;
-        ui.coinNameLabel.setText("" + player.coin);
+        ui.weaponNameLabel.setText(player.getCurrentWeapon().getName());
+        player.setCoin(player.getCoin() + 15);
+        ui.coinNameLabel.setText("" + player.getCoin());
 
         ui.choice1.setText("Вернуться");
         ui.choice2.setText("");
@@ -1411,13 +1440,13 @@ public class Story {
         ui.mainTextArea.setText("Вы победили "+monster.getName()+"!\nВы не стали его убивать, но в знак превосходства нагло забираете его катану, не зная ни имя её владельца, ни её многовековую историю. " +
                 "Также вы съедаете недельный запас риса бедолаги.\n\n(Ваше HP пополнилось на 30!)");
         try {
-            player.currentWeapon.setWeapon("Катана времён Муромати");
+            player.getCurrentWeapon().setWeapon("Катана времён Муромати");
         } catch (IOException e) {
             e.printStackTrace();
         }
-        ui.weaponNameLabel.setText(player.currentWeapon.getName());
-        player.hp = player.hp + 30;
-        ui.hpNumberLabel.setText(""+player.hp);
+        ui.weaponNameLabel.setText(player.getCurrentWeapon().getName());
+        player.sethp(player.gethp() + 30);
+        ui.hpNumberLabel.setText(""+player.gethp());
 
         ui.choice1.setText("Вернуться");
         ui.choice2.setText("");
@@ -1430,12 +1459,13 @@ public class Story {
     }
     public void winWitch(){
         se.setFile(applause); se.play();
-        ui.mainTextArea.setText("Вы победили "+monster.getName()+"!\nПосле смерти от неё не осталось никаких следов, кроме золотого креста на полу. Вы подбираете его как трофей.\n\n(Вы получили 20 монет!)");
+        ui.mainTextArea.setText("Вы победили "+monster.getName()+"!\nПосле смерти от неё не осталось никаких следов, кроме золотого креста на полу. Вы подбираете его как трофей.\n[Дальше по сюжету" +
+                " он никак не используется.]\n\n(Вы получили 20 монет и 20 hp!)");
 
-        player.hp = player.hp + 20;
-        ui.hpNumberLabel.setText(""+player.hp);
-        player.coin = player.coin + 20;
-        ui.coinNameLabel.setText(""+player.coin);
+        player.sethp(player.gethp() + 20);
+        ui.hpNumberLabel.setText(""+player.gethp());
+        player.setCoin(player.getCoin() + 20);
+        ui.coinNameLabel.setText(""+player.getCoin());
 
 
         ui.choice1.setText("Вернуться");
@@ -1452,8 +1482,8 @@ public class Story {
         se.setFile(applause); se.play();
         ui.mainTextArea.setText("Вы победили "+monster.getName()+"!\nВы убили и съели её сырой!\n\n(Ваше HP увеличилось на 40!)");
 
-        player.hp = player.hp + 40;
-        ui.hpNumberLabel.setText(""+player.hp);
+        player.sethp(player.gethp() + 40);
+        ui.hpNumberLabel.setText(""+player.gethp());
 
         ui.choice1.setText(">");
         ui.choice2.setText("");
@@ -1466,8 +1496,8 @@ public class Story {
         witch = 1;
     }
     public void endingWin(){
-        se.setFile(applause); se.play();
-        ui.mainTextArea.setText("Своим "+player.currentWeapon.getName() + " вы пронзаете рыцарю сердце и оставляете его умирать. Другая стража не смеет даже думать о том, чтоб напасть на вас. Они выдают вам " +
+        se.setFile(win); se.play();
+        ui.mainTextArea.setText("Своим "+player.getCurrentWeapon().getName() + " вы пронзаете рыцарю сердце и оставляете его умирать. Другая стража не смеет даже думать о том, чтоб напасть на вас. Они выдают вам " +
                 "короля. Вы же решаете провести прилюдный самосуд.  \n\n<THE END>");
         ui.choice1.setVisible(false);
         ui.choice2.setVisible(false);
@@ -1482,6 +1512,7 @@ public class Story {
         ui.choice4.setVisible(false);
     }
     public void lose() {
+        se.setFile(gameOver); se.play();
         ui.mainTextArea.setText("Вы мертвы!\n\n<GAME OVER>");
         ui.choice1.setText("На главный экран");
         ui.choice2.setText("");

@@ -1,9 +1,9 @@
-package Weapons;
+package Content;
 
 import java.io.*;
 import java.util.*;
 
-public class SuperWeapon {
+public class Weapon {
     public void setWeapon(String str) throws IOException {
     Scanner sc = new Scanner(new FileReader(".//config//weapons.txt"));
     int dmg;
