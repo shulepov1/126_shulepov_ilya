@@ -1,18 +1,20 @@
 package Weapons;
 
 import java.io.*;
+import java.util.*;
 
 public class SuperWeapon {
     public void setWeapon(String str) throws IOException {
-    BufferedReader br = new BufferedReader(new FileReader(".//config//weapons.txt"));
+    Scanner sc = new Scanner(new FileReader(".//config//weapons.txt"));
     int dmg;
-    while (!br.readLine().equals(str)){
-            br.readLine();
+    while (sc.hasNextLine()){
+            String nextToken = sc.nextLine();
+            if (nextToken.equals(str)) {
+                setName(str);
+                dmg = Integer.parseInt(sc.nextLine());
+                setDamage(dmg);
+            }
     }
-    dmg = Integer.parseInt(br.readLine());
-    setName(str);
-    setDamage(dmg);
-    br.close();
     }
 
     private String name;

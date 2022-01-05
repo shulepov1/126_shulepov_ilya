@@ -64,15 +64,13 @@ public class Story {
         player.hp = 10;
         ui.hpNumberLabel.setText("" + player.hp);
 
-        player.currentWeapon = new Weapon_Knife();
-        /*
+        player.currentWeapon = new SuperWeapon();
         try {
             player.currentWeapon.setWeapon("Нож");
         } catch (IOException e) {
             e.printStackTrace();
         }
-         */
-
+        
         ui.weaponNameLabel.setText(player.currentWeapon.getName());
 
         player.coin = 0;
@@ -848,6 +846,7 @@ public class Story {
         ui.mainTextArea.setText("Вы купили Молот!");
         player.coin = player.coin - 20;
         ui.coinNameLabel.setText("" + player.coin);
+
         ui.weaponNameLabel.setText(player.currentWeapon.getName());
         ui.choice1.setText(">");
         ui.choice2.setText("");

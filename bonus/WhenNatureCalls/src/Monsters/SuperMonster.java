@@ -1,29 +1,32 @@
 package Monsters;
 
 import java.io.*;
+import java.util.*;
 
 public class SuperMonster {
     public void setMonster(String str) throws IOException {
-        BufferedReader br = new BufferedReader(new FileReader(".//config//monsters.txt"));
+        Scanner sc = new Scanner(new FileReader(".//config//monsters.txt"));
         int dmg;
         int attack;
         String msg1;
         String msg2;
         String msg3;
-        while (!br.readLine().equals(str)){
-            br.readLine();
+        while (sc.hasNextLine()) {
+            String nextToken = sc.nextLine();
+            if (nextToken.equals(str)) {
+                dmg = Integer.parseInt(sc.nextLine());
+                attack = Integer.parseInt(sc.nextLine());
+                msg1 = sc.nextLine();
+                msg2 = sc.nextLine();
+                msg3 = sc.nextLine();
+                setName(str);
+                sethp(dmg);
+                setAttack(attack);
+                setAttackMessage1(msg1);
+                setAttackMessage2(msg2);
+                setAttackMessage3(msg3);
+            }
         }
-        dmg = Integer.parseInt(br.readLine());
-        attack = Integer.parseInt(br.readLine());
-        msg1 = br.readLine();
-        msg2 = br.readLine();
-        msg3 = br.readLine();
-        setName(str);
-        sethp(dmg);
-        setAttack(attack);
-        setAttackMessage1(msg1);
-        setAttackMessage2(msg2);
-        setAttackMessage3(msg3);
     }
 
     private String name;
