@@ -12,14 +12,14 @@ public class ContractsTests extends Assert{
         assertEquals(0, contractsList.getContractsCount());
     }
     @Test
-    public void addContract_AddContractWithNumberAndDate_ContractsListSizeEqualsOne(){
+    public void addContract_AddContractWithNumberAndDate_ContractsListSizeEqualsOne() throws Exception {
         ContractManager contractsList = ContractManager.create();
         contractsList.addContract(1, 20220101);
         contractsList.addContract(null, 20220101);
         assertEquals(1, contractsList.getContractsCount());
     }
     @Test
-    public void registerDocument_RegisterDocumentToContract_DocumentRegistered(){
+    public void registerDocument_RegisterDocumentToContract_DocumentRegistered() throws Exception {
         ContractManager contractsList = ContractManager.create();
         contractsList.addContract(1, 20220101);
         contractsList.addContract(2, 20770202);
@@ -29,13 +29,13 @@ public class ContractsTests extends Assert{
         assertEquals(1, contractsList.getContractsList().get(2).getDocumentsListSize());
     }
     @Test
-    public void getSum_getSumOfPaymentsOfSpecificContract_sumEqualsZero(){
+    public void getSum_getSumOfPaymentsOfSpecificContract_sumEqualsZero() throws Exception {
         ContractManager contractsList = ContractManager.create();
         contractsList.addContract(1, 20220101);
         assertEquals(0, contractsList.getContractsList().get(1).getSumOfPayments());
     }
     @Test
-    public void getSum_getSumOfPaymentsOfSpecificContract_sumEquals1000(){
+    public void getSum_getSumOfPaymentsOfSpecificContract_sumEquals1000() throws Exception {
         ContractManager contractsList = ContractManager.create();
         contractsList.addContract(1, 20220101);
         contractsList.registerDocument(500, 1, DocType.BankOrder, 1, 20220101);
@@ -47,7 +47,7 @@ public class ContractsTests extends Assert{
         assertEquals(1000, contractsList.getContractsList().get(2).getSumOfPayments());
     }
     @Test
-    public void deletePayment_deletePayment_AmountOfPaymentsEqualsZero(){
+    public void deletePayment_deletePayment_AmountOfPaymentsEqualsZero() throws Exception {
         ContractManager contractsList = ContractManager.create();
         contractsList.addContract(1, 20220101);
         contractsList.registerDocument(500, 1, DocType.BankOrder, 1, 20220101);
@@ -60,7 +60,7 @@ public class ContractsTests extends Assert{
         assertEquals(0, contractsList.getContractsList().get(1).getAmountOfPayments());
     }
     @Test
-    public void deletePayment_deletePayment_AmountOfPaymentsEqualsTheRightNumber(){
+    public void deletePayment_deletePayment_AmountOfPaymentsEqualsTheRightNumber() throws Exception {
         ContractManager contractsList = ContractManager.create();
         contractsList.addContract(1, 20220101);
         contractsList.registerDocument(500, 1, DocType.BankOrder, 1, 20220101);
@@ -80,7 +80,7 @@ public class ContractsTests extends Assert{
         assertEquals(1, contractsList.getContractsList().get(2).getAmountOfPayments());
     }
     @Test
-    public void getPayments_getListOfPaymentsOfSpecificContract_gotListOfPayments(){
+    public void getPayments_getListOfPaymentsOfSpecificContract_gotListOfPayments() throws Exception {
         ContractManager contractsList = ContractManager.create();
         contractsList.addContract(1, 20220101);
         contractsList.registerDocument(11, 1, DocType.BankOrder, 1, 20220101);
@@ -95,7 +95,7 @@ public class ContractsTests extends Assert{
         assertEquals(pays, contractsList.getContractsList().get(1).getListOfPayments());
     }
     @Test
-    public void getContracts_getListOfContractsWithTheirTotalSum_gotListOfContracts(){
+    public void getContracts_getListOfContractsWithTheirTotalSum_gotListOfContracts() throws Exception {
         ContractManager contractsList = ContractManager.create();
         contractsList.addContract(1, 20220101);
         contractsList.registerDocument(11, 1, DocType.BankOrder, 1, 20220101);
@@ -114,7 +114,7 @@ public class ContractsTests extends Assert{
         assertEquals(contracts, contractsList.getListOfContractsWithPayments());
     }
     @Test
-    public void getListOfAllPayments_getListOfAllPayments_gotListOfAllPayments(){
+    public void getListOfAllPayments_getListOfAllPayments_gotListOfAllPayments() throws Exception {
         ContractManager contractsList = ContractManager.create();
         contractsList.addContract(1, 20220101);
         contractsList.registerDocument(11, 1, DocType.BankOrder, 1, 20220101);

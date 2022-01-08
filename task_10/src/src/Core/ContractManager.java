@@ -11,18 +11,18 @@ public class ContractManager {
     }
 
     private ContractManager(){
-        contractsList = new HashMap<Integer, Contract>();
+        contractsList = new HashMap<>();
     }
 
-    public void addContract(Integer number, Integer date){
+    public void addContract(Integer number, Integer date) throws Exception{
             if (contractsList.containsKey(number)) {
-                System.out.println("Договор с таким номером уже заключён");
+                throw new Exception("Договор с таким номером уже заключён");
             } else {
                 if (number > 0 && String.valueOf(date).length() == 8) {
                     contractsList.put(number, new Contract(date));
                     System.out.println("Договор " + number + " был успешно заключён.");
                 } else {
-                    System.out.println("Введённые данные некорректны.");
+                    throw new Exception("Введённые данные некорректны.");
                 }
             }
     }
@@ -35,16 +35,16 @@ public class ContractManager {
         return contractsList.size();
     }
 
-    public void registerDocument(int sum, int number, DocType docType, int contractNumber, int date){
+    public void registerDocument(int sum, int number, DocType docType, int contractNumber, int date) throws Exception{
         if (contractsList.get(contractNumber).getListOfPayments().contains(number)) {
-            System.out.println("Документ с таким номером уже существует");
+            throw new Exception("Документ с таким номером уже существует");
         }
         else {
             if (sum > 0 && number > 0 && contractNumber > 0 && String.valueOf(date).length() == 8) {
                 contractsList.get(contractNumber).registerDocument(sum, number, docType, date);
                 System.out.println(docType + " на сумму " + sum + " был успешно произведён");
             } else {
-                System.out.println("Введённые данные некоректны");
+                throw new Exception("Введённые данные некоректны");
             }
         }
         System.out.println();
@@ -60,8 +60,8 @@ public class ContractManager {
         ArrayList<ArrayList<Integer>> pays = new ArrayList<>();
         contractsList.forEach((k ,v ) -> pays.add(v.getListOfPayments()));
         ArrayList<Integer> payments = new ArrayList<>();
-        for (int i = 0; i < pays.size(); i++){
-            payments.addAll(pays.get(i));
+        for (ArrayList<Integer> pay : pays) {
+            payments.addAll(pay);
         }
         return payments;
     }

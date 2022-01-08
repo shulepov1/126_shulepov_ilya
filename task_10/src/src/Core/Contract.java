@@ -13,11 +13,14 @@ public class Contract {
         this.date = date;
     }
 
-    public void registerDocument(int sum, int number, DocType docType, int date){
+    public void registerDocument(int sum, int number, DocType docType, int date) throws Exception {
             if (sum > 0 && number > 0 && String.valueOf(date).length() == 8) {
                 docsList.put(number, new Doc(sum, docType, date));
                 summary = summary + sum;
                 count++;
+            }
+            else {
+                throw new Exception("Введённые данные некорректны.");
             }
     }
 
@@ -29,9 +32,9 @@ public class Contract {
         return summary;
     }
 
-    public void deletePayment(int num){
+    public void deletePayment(int num) throws Exception{
         if (!docsList.containsKey(num)){
-            System.out.println("Документа с таким номером не существует");
+            throw new Exception ("Документа с таким номером не существует");
         }
         else {
             summary = summary - docsList.get(num).getSum();
