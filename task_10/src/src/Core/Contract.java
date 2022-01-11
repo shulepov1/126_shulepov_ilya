@@ -8,20 +8,26 @@ public class Contract {
     private int summary;
     private int count = 0;
     private HashMap<Integer, Doc> docsList = new HashMap<Integer, Doc>();
+    private ArrayList<Integer> docz = new ArrayList<>();
 
     public Contract(int date) {
         this.date = date;
     }
 
     public void registerDocument(int sum, int number, DocType docType, int date) throws Exception {
-            if (sum > 0 && number > 0 && String.valueOf(date).length() == 8) {
+        if (sum > 0 && number > 0 && String.valueOf(date).length() == 8) {
                 docsList.put(number, new Doc(sum, docType, date));
                 summary = summary + sum;
                 count++;
+                docz.add(number);
             }
             else {
                 throw new Exception("Введённые данные некорректны.");
             }
+    }
+
+    public ArrayList<Integer> getListOfDocsNumbers(){
+        return docz;
     }
 
     public int getDocumentsListSize(){
@@ -40,6 +46,7 @@ public class Contract {
             summary = summary - docsList.get(num).getSum();
             docsList.remove(num);
             count--;
+            docz.remove(num);
             System.out.println("Платёж был успешно удалён");
         }
     }
