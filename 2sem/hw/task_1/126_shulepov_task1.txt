@@ -1,0 +1,31 @@
+DynamicArray|11|size = 1; -> size = 0;|DynamicArray_CreateArrayWithNoSize_SizeEqualsZero
+DynamicArray|21|if(newSize > 0) -> if(newSize < 0)|resize_ResizeArray_ResizeIsCorrect
+DynamicArray|27|newSize = size; -> size = newSize;|resize_ResizeArray_ResizeIsCorrect
+DynamicArray|15|data = new Object[capacity]; -> data = new Object[size];|set_setOneItem_SetIsCorrect
+DynamicArray|30|if(index < 0 || index > size) -> if(index < 0 || index >= size)|get_getSizeIndex_GetIndexOutOfBoundsException
+DynamicArray|35|if(index < 0 || index > size) -> if(index < 0 || index >= size)|set_setToSizeIndex_GetIndexOutOfBoundsException
+DynamicArray|49|data[size] = value; -> data[index] = value;|insert_insertElement_ElementInsertedOK
+DynamicArray|42|if(capacity < size) { -> if(capacity == size) {|insert_insertElement_ElementInsertedOK
+DynamicArray|40|if(index < 0 || index > size) -> if(index < 0 || index >= size)|insert_insertElementToSizeIndex_GetIndexOutOfBoundsException
+DynamicArray|52|if(capacity < size) { -> if(capacity == size) {|pushBack_pushBackValue_PushBackOK
+DynamicArray|56|data[capacity] = value; -> data[size] = value;|pushBack_pushBackValue_PushBackOK
+DynamicArray|60|if(size < 0) -> if(size <= 0)|popBack_popBackInEmptyArray_GetUnsupportedOperationException
+DynamicArray|66|if(index < 0 || index > size) -> if(index < 0 || index >= size)|remove_removeValueWithSizeIndex_GetIndexOutOfBoundsException
+
+DoubleLinkedList|11|return dummy == dummy; -> return dummy == dummy.getNext();|isEmpty_CreateNotEmptyDLL_isEmptyFalse
+DoubleLinkedList|28|cur = cur.getPrev(); -> cur = cur.getNext();|pushFront_pushFrontValue_pushFrontOK
+Node|13|this.next = prev; -> this.next = next;|pushFront_pushFrontValue_pushFrontOK
+Node|14|this.prev = next; -> this.prev = prev;|pushFront_pushFrontValue_pushFrontOK
+DoubleLinkedList|17|return dummy.getPrev(); -> return dummy.getNext();|getHead_getHead_getHeadOK
+DoubleLinkedList|41|return insertBefore(getTail(), data); -> return insertBefore(getHead(), data);|pushFront_pushFrontValue_pushFrontOK
+DoubleLinkedList|20|return dummy.getNext(); -> return dummy.getPrev();|getTail_getTail_getTailOK
+DoubleLinkedList|44|return insertAfter(getHead(), data); -> return insertAfter(getTail(), data);|get_ValueWithSizeIndex_GetIndexOutOfBoundsException
+DoubleLinkedList|24|if(index < 0 || index > size) -> if(index < 0 || index >= size)|get_ValueWithSizeIndex_GetIndexOutOfBoundsException
+DoubleLinkedList|33|--size; -> ++size;|insertAfter_checkSizeAfterInsertAfter_sizeIncreasesByOne
+DoubleLinkedList|47|node.getPrev().setPrev(node.getNext()); -> node.getPrev().setNext(node.getNext());|remove_removeElement_removeOK
+DoubleLinkedList|48|node.getNext().setNext(node.getPrev()); -> node.getNext().setPrev(node.getPrev());|remove_removeElement_removeOK
+DoubleLinkedList|55|list.getHead().setNext(node); -> list.getHead().setPrev(node);|insertListAfter_insertListAfterList_insertListAfterListOK
+DoubleLinkedList|56|list.getTail().setPrev(node.getNext()); -> list.getTail().setNext(node.getNext());|insertListAfter_insertListAfterList_insertListAfterListOK
+DoubleLinkedList|66|list.getHead().setNext(node.getPrev()); -> list.getHead().setPrev(node.getPrev());|insertListBefore_insertListBeforeList_insertListBeforeListOK
+DoubleLinkedList|67|list.getTail().setPrev(node); -> list.getTail().setNext(node);|insertListBefore_insertListBeforeList_insertListBeforeListOK
+
