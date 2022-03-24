@@ -45,10 +45,11 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunManager" selected="JUnit.Task1_Tests.insertListBefore_insertListBeforeList_insertListBeforeListOK">
     <configuration name="Task1_Tests.insertBefore_checkSizeAfterInsertBefore_sizeIncreasesByOne" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="126_shulepov_task1" />
+      <module name="126_shulepov_task_1" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="Task1_Tests" />
       <option name="METHOD_NAME" value="insertBefore_checkSizeAfterInsertBefore_sizeIncreasesByOne" />
@@ -58,7 +59,7 @@
       </method>
     </configuration>
     <configuration name="Task1_Tests.insertListAfter_insertListAfterList_insertListAfterListOK" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="126_shulepov_task1" />
+      <module name="126_shulepov_task_1" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="Task1_Tests" />
       <option name="METHOD_NAME" value="insertListAfter_insertListAfterList_insertListAfterListOK" />
@@ -68,7 +69,7 @@
       </method>
     </configuration>
     <configuration name="Task1_Tests.insertListBefore_insertListBeforeList_insertListBeforeListOK" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="126_shulepov_task1" />
+      <module name="126_shulepov_task_1" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="Task1_Tests" />
       <option name="METHOD_NAME" value="insertListBefore_insertListBeforeList_insertListBeforeListOK" />
@@ -78,7 +79,7 @@
       </method>
     </configuration>
     <configuration name="Task1_Tests.pushBack_pushBackValue_pushBackOK" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="126_shulepov_task1" />
+      <module name="126_shulepov_task_1" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="Task1_Tests" />
       <option name="METHOD_NAME" value="pushBack_pushBackValue_pushBackOK" />
@@ -88,7 +89,7 @@
       </method>
     </configuration>
     <configuration name="Task1_Tests.remove_removeElement_removeOK" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="126_shulepov_task1" />
+      <module name="126_shulepov_task_1" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="Task1_Tests" />
       <option name="METHOD_NAME" value="remove_removeElement_removeOK" />
