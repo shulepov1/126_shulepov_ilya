@@ -1,0 +1,15 @@
+<имя файла>|<номер_строки>|<до> -> <после>|<имя_теста>
+BubbleSort|5|for(int i = 0; i < data.length - sps; ++i) { -> for(int i = 1; i < data.length - sps; ++i) {|sort_sortSortedArray_sortOK
+BubbleSort|6|if(comparator.compare(data[i - 1], data[i]) < 0) { -> if(comparator.compare(data[i - 1], data[i]) > 0) {|sort_sortSortedArray_sortOK
+BubbleSort|4|for(int sps = 1; sps < data.length - 1; ++sps) { -> for(int sps = 0; sps < data.length - 1; ++sps) {|sort_sortFirstElementIsSorted_sortOK
+
+SelectionSort|8|maxInd = sortedSize; -> maxInd = i;|SelectionSort_sortSortedArray_sortOK
+SelectionSort|10|T tmp = data[data.length - sortedSize]; -> T tmp = data[data.length - 1 - sortedSize];|SelectionSort_sortSortedArray_sortOK
+SelectionSort|11|data[data.length - sortedSize] = data[maxInd]; -> data[data.length - 1 - sortedSize] = data[maxInd];|SelectionSort_sortSortedArray_sortOK
+SelectionSort|5|int maxInd = 1; -> int maxInd = 0;|SelectionSort_sortRandomInts_sortOK
+SelectionSort|4|for(int sortedSize = 1; sortedSize < data.length - 1; ++sortedSize) { -> for(int sortedSize = 0; sortedSize < data.length - 1; ++sortedSize) {|SelectionSort_sortFirstElementIsSorted_sortOK
+
+InsertionSort|6|while (cur > 0 && comparator.compare(data[cur - 1], data[cur]) <= 0){ -> while (cur > 0 && comparator.compare(data[cur - 1], data[cur]) > 0){|InsertionSort_sortSortedArray_sortOK
+InsertionSort|8|++cur; -> --cur;|InsertionSort_sortRandomInts_sortOK
+InsertionSort|4|for (int sortedSize = 0; sortedSize < data.length; ++sortedSize) { -> for (int sortedSize = 1; sortedSize < data.length; ++sortedSize) {|# Тестами не выявляется; при sortedSize = 0 конечный результат не изменится, в таком случае просто в самом начале дойдем до цикла while, где из-за cur > 0 (false) пойдет следующая итерация с уже sortedSize = 1
+
