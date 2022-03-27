@@ -1,4 +1,3 @@
-<имя файла>|<номер_строки>|<до> -> <после>|<имя_теста>
 BubbleSort|5|for(int i = 0; i < data.length - sps; ++i) { -> for(int i = 1; i < data.length - sps; ++i) {|sort_sortSortedArray_sortOK
 BubbleSort|6|if(comparator.compare(data[i - 1], data[i]) < 0) { -> if(comparator.compare(data[i - 1], data[i]) > 0) {|sort_sortSortedArray_sortOK
 BubbleSort|4|for(int sps = 1; sps < data.length - 1; ++sps) { -> for(int sps = 0; sps < data.length - 1; ++sps) {|sort_sortFirstElementIsSorted_sortOK
