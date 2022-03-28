@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bce8d6b8-4a71-4e1b-b644-09568ca85f11" name="Changes" comment="" />
+    <list default="true" id="dfe373f8-7d24-4b4d-86f2-a42d78aa2c50" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,7 +20,7 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="26xZz0vQfrI02pDB67JZUq0crxN" />
+  <component name="ProjectId" id="26z4zERWD1Ev8Xc1ei5xBGGguN9" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -33,56 +33,56 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/IdeaProjects/Mpgu2sem" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RunManager" selected="JUnit.Task2_Tests">
-    <configuration name="Task2_Tests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="126_shulepov_task_2" />
+  <component name="RunManager" selected="JUnit.Task3_Tests">
+    <configuration name="Task3_Tests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="126_shulepov_task_3" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="Task2_Tests" />
+      <option name="MAIN_CLASS_NAME" value="Task3_Tests" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Task2_Tests.InsertionSort_sortFirstElementIsSorted_sortOK" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="126_shulepov_task_2" />
+    <configuration name="Task3_Tests.HeapSort_sortBigSortedArray_sortOK" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="126_shulepov_task_3" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="Task2_Tests" />
-      <option name="METHOD_NAME" value="InsertionSort_sortFirstElementIsSorted_sortOK" />
+      <option name="MAIN_CLASS_NAME" value="Task3_Tests" />
+      <option name="METHOD_NAME" value="HeapSort_sortBigSortedArray_sortOK" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Task2_Tests.InsertionSort_sortRandomInts_sortOK" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="126_shulepov_task_2" />
+    <configuration name="Task3_Tests.HeapSort_sortTwoSortedElements_sortOK" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="126_shulepov_task_3" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="Task2_Tests" />
-      <option name="METHOD_NAME" value="InsertionSort_sortRandomInts_sortOK" />
+      <option name="MAIN_CLASS_NAME" value="Task3_Tests" />
+      <option name="METHOD_NAME" value="HeapSort_sortTwoSortedElements_sortOK" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Task2_Tests.InsertionSort_sortSecondElementIsSorted_sortOK" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="126_shulepov_task_2" />
+    <configuration name="Task3_Tests.QuickSort_sortSomeData_SortOK" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="126_shulepov_task_3" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="Task2_Tests" />
-      <option name="METHOD_NAME" value="InsertionSort_sortSecondElementIsSorted_sortOK" />
+      <option name="MAIN_CLASS_NAME" value="Task3_Tests" />
+      <option name="METHOD_NAME" value="QuickSort_sortSomeData_SortOK" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Task2_Tests.InsertionSort_sortSortedArray_sortOK" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="126_shulepov_task_2" />
+    <configuration name="Task3_Tests.QuickSort_sortTwoElements_SortOK" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="126_shulepov_task_3" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="Task2_Tests" />
-      <option name="METHOD_NAME" value="InsertionSort_sortSortedArray_sortOK" />
+      <option name="MAIN_CLASS_NAME" value="Task3_Tests" />
+      <option name="METHOD_NAME" value="QuickSort_sortTwoElements_SortOK" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -90,23 +90,26 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.Task2_Tests" />
-        <item itemvalue="JUnit.Task2_Tests.InsertionSort_sortFirstElementIsSorted_sortOK" />
-        <item itemvalue="JUnit.Task2_Tests.InsertionSort_sortSecondElementIsSorted_sortOK" />
-        <item itemvalue="JUnit.Task2_Tests.InsertionSort_sortRandomInts_sortOK" />
-        <item itemvalue="JUnit.Task2_Tests.InsertionSort_sortSortedArray_sortOK" />
+        <item itemvalue="JUnit.Task3_Tests" />
+        <item itemvalue="JUnit.Task3_Tests.QuickSort_sortSomeData_SortOK" />
+        <item itemvalue="JUnit.Task3_Tests.QuickSort_sortTwoElements_SortOK" />
+        <item itemvalue="JUnit.Task3_Tests.HeapSort_sortBigSortedArray_sortOK" />
+        <item itemvalue="JUnit.Task3_Tests.HeapSort_sortTwoSortedElements_sortOK" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="bce8d6b8-4a71-4e1b-b644-09568ca85f11" name="Changes" comment="" />
-      <created>1648367458483</created>
+      <changelist id="dfe373f8-7d24-4b4d-86f2-a42d78aa2c50" name="Changes" comment="" />
+      <created>1648413342359</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1648367458483</updated>
+      <updated>1648413342359</updated>
     </task>
     <servers />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/126_shulepov_task_3$All_in_126_shulepov_task_3.ic" NAME="All in 126_shulepov_task_3 Coverage Results" MODIFIED="1648451409378" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
