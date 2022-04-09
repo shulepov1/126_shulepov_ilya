@@ -168,20 +168,6 @@ public class Task1_Tests extends Assert {
         assertEquals(3, arr.get(0).intValue());
         assertEquals(9, arr.get(1).intValue());
     }
-    @Test
-    public void remove_removeValueWithSizeIndex_GetIndexOutOfBoundsException(){
-        DynamicArray<Integer> arr = new DynamicArray<>(3);
-        arr.set(0, 3);
-        arr.set(1, 6);
-        arr.set(2, 9);
-        try{
-            arr.remove(1);
-        }
-        catch (IndexOutOfBoundsException e){
-            assertEquals("Index out of bounds", e.getMessage());
-        }
-    }
-
     /*
     Unit Tests for DoubleLinkedList:
      */
