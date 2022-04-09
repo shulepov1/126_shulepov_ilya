@@ -10,5 +10,5 @@ SelectionSort|4|for(int sortedSize = 1; sortedSize < data.length - 1; ++sortedSi
 
 InsertionSort|6|while (cur > 0 && comparator.compare(data[cur - 1], data[cur]) <= 0){ -> while (cur > 0 && comparator.compare(data[cur - 1], data[cur]) > 0){|InsertionSort_sortSortedArray_sortOK
 InsertionSort|8|++cur; -> --cur;|InsertionSort_sortRandomInts_sortOK
-InsertionSort|4|for (int sortedSize = 0; sortedSize < data.length; ++sortedSize) { -> for (int sortedSize = 1; sortedSize < data.length; ++sortedSize) {|# Тестами не выявляется; при sortedSize = 0 конечный результат не изменится, в таком случае просто в самом начале дойдем до цикла while, где из-за cur > 0 (false) пойдет следующая итерация с уже sortedSize = 1
+
 
