@@ -1,316 +1,240 @@
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.*;
 
 public class Task1_Tests extends Assert {
-    /*
-    Unit Tests for DynamicArray:
-     */
     @Test
-    public void DynamicArray_CreateArrayWithNoSize_SizeEqualsZero(){
-        DynamicArray<Integer> arr = new DynamicArray<>();
-        int size = arr.getSize();
-        assertEquals(0, size);
-    }
-    @Test
-    public void DynamicArray_CreateArrayWithGivenSize_SizeIsCorrect(){
-        DynamicArray<Long> arr1 = new DynamicArray<>(12);
-        DynamicArray<Long> arr2 = new DynamicArray<>(5);
-        DynamicArray<Long> arr3 = new DynamicArray<>(199);
-
-        assertEquals(12, arr1.getSize());
-        assertEquals(5, arr2.getSize());
-        assertEquals(199, arr3.getSize());
-    }
-    @Test
-    public void resize_ResizeArray_ResizeIsCorrect(){
-        DynamicArray<Integer> arr = new DynamicArray<>(10);
-        arr.resize(20);
-        assertEquals(20, arr.getSize());
-    }
-    @Test
-    public void resize_ResizeArrToNegative_GetNegativeSizeArrayException(){
-        DynamicArray<Integer> arr = new DynamicArray<>(10);
-        try{
-            arr.resize(-20);
-        }
-        catch (NegativeArraySizeException e){
-            assertEquals("Size can not be negative", e.getMessage());
-        }
-    }
-    @Test
-    public void set_setOneItem_SetIsCorrect(){
-        DynamicArray<String> arr = new DynamicArray<>(1);
-        arr.set(0, "str");
-        assertEquals("str", arr.get(0));
-    }
-    @Test
-    public void get_getAnElement_GetIsCorrect(){
-        DynamicArray<Integer> arr = new DynamicArray<>(3);
-        arr.set(0, 3);
-        arr.set(1, 6);
-        arr.set(2, 9);
-        assertEquals(3, arr.get(0).intValue());
-    }
-    @Test
-    public void get_getSizeIndex_GetIndexOutOfBoundsException(){
-        DynamicArray<Integer> arr = new DynamicArray<>(3);
-        arr.set(0, 3);
-        arr.set(1, 6);
-        arr.set(2, 9);
-        try{
-            arr.get(3);
-        }
-        catch (IndexOutOfBoundsException e){
-            assertEquals("Index out of bounds", e.getMessage());
-        }
-    }
-    @Test
-    public void get_getNegativeIndex_GetIndexOutOfBoundsException(){
-        DynamicArray<Integer> arr = new DynamicArray<>(3);
-        arr.set(0, 3);
-        arr.set(1, 6);
-        arr.set(2, 9);
-        try{
-            arr.get(-3);
-        }
-        catch (IndexOutOfBoundsException e){
-            assertEquals("Index out of bounds", e.getMessage());
-        }
-    }
-    @Test
-    public void get_getIndexOutOfBounds_GetIndexOutOfBoundsException(){
-        DynamicArray<Integer> arr = new DynamicArray<>(3);
-        arr.set(0, 3);
-        arr.set(1, 6);
-        arr.set(2, 9);
-        try{
-            arr.get(15);
-        }
-        catch (IndexOutOfBoundsException e){
-            assertEquals("Index out of bounds", e.getMessage());
-        }
-    }
-    @Test
-    public void set_setToSizeIndex_GetIndexOutOfBoundsException(){
-        DynamicArray<Integer> arr = new DynamicArray<>(3);
-        arr.set(0, 3);
-        arr.set(1, 6);
-        arr.set(2, 9);
-        try{
-            arr.set(3, 12);
-        }
-        catch (IndexOutOfBoundsException e){
-            assertEquals("Index out of bounds", e.getMessage());
-        }
-    }
-    @Test
-    public void set_setIndexOutOfBounds_GetIndexOutOfBoundsException(){
-        DynamicArray<Integer> arr = new DynamicArray<>(3);
-        arr.set(0, 3);
-        arr.set(1, 6);
-        arr.set(2, 9);
-        try{
-            arr.set(13, 12);
-        }
-        catch (IndexOutOfBoundsException e){
-            assertEquals("Index out of bounds", e.getMessage());
-        }
-    }
-    @Test
-    public void insert_insertElement_ElementInsertedOK(){
-        DynamicArray<Integer> arr = new DynamicArray<>(3);
-        arr.set(0, 3);
-        arr.set(1, 6);
-        arr.set(2, 9);
-        arr.insert(1, 60);
-        assertEquals(60, arr.get(1).intValue());
-    }
-    @Test
-    public void pushBack_pushBackValue_PushBackOK(){
-        DynamicArray<Integer> arr = new DynamicArray<>(3);
-        arr.set(0, 3);
-        arr.set(1, 6);
-        arr.set(2, 9);
-        arr.pushBack(12);
-        assertEquals(12, arr.get(3).intValue());
-    }
-    @Test
-    public void popBack_popBackValue_popBackOK(){
-        DynamicArray<Integer> arr = new DynamicArray<>(3);
-        arr.set(0, 3);
-        arr.set(1, 6);
-        arr.set(2, 9);
-        arr.popBack();
-        try {
-            arr.get(2);
-        }
-        catch (IndexOutOfBoundsException e){
-            assertEquals("Index out of bounds", e.getMessage());
-        }
-    }
-    @Test
-    public void popBack_popBackInEmptyArray_GetUnsupportedOperationException(){
-        DynamicArray<Integer> arr = new DynamicArray<>();
-        try {
-            arr.popBack();
-        }
-        catch (UnsupportedOperationException e){
-            assertEquals("Array is empty", e.getMessage());
-        }
-    }
-    @Test
-    public void remove_removeValueFromArray_removeOK(){
-        DynamicArray<Integer> arr = new DynamicArray<>(3);
-        arr.set(0, 3);
-        arr.set(1, 6);
-        arr.set(2, 9);
-        arr.remove(1);
-        assertEquals(3, arr.get(0).intValue());
-        assertEquals(9, arr.get(1).intValue());
-    }
-    /*
-    Unit Tests for DoubleLinkedList:
-     */
-    @Test
-    public void isEmpty_CreateEmptyDLL_isEmptyTrue(){
+    public void getNext_getNextElem_ElemIsCorrect(){
         DoubleLinkedList<Integer> list = new DoubleLinkedList<>();
-        assertTrue(list.isEmpty());
+        Node<Integer> prev = new Node<>(1);
+        Node<Integer> next = new Node<>(3);
+        Node<Integer> elem = new Node<Integer>(2, next, prev);
+        assertEquals(next, elem.getNext());
     }
     @Test
-    public void isEmpty_CreateNotEmptyDLL_isEmptyFalse(){
+    public void getPrev_getPrevElem_ElemIsCorrect(){
         DoubleLinkedList<Integer> list = new DoubleLinkedList<>();
-        list.pushBack(13);
+        Node<Integer> prev = new Node<>(1);
+        Node<Integer> next = new Node<>(3);
+        Node<Integer> elem = new Node<Integer>(2, next, prev);
+        assertEquals(prev, elem.getPrev());
+    }
+    @Test
+    public void isEmpty_checkListWithElements_isEmptyFalse(){
+        DoubleLinkedList<Integer> list = new DoubleLinkedList<>();
+        list.insertAfter(list.getHead(), 1);
         assertFalse(list.isEmpty());
     }
     @Test
-    public void pushFront_pushFrontValue_pushFrontOK(){
+    public void getHead_getHeadOfList_HeadIsCorrect(){
         DoubleLinkedList<Integer> list = new DoubleLinkedList<>();
-        list.pushFront(9);
-        list.pushFront(4);
-        assertEquals(4, ((Node<Integer>) list.getHead()).getData().intValue());
+        list.insertBefore(list.getHead(),2);
+        Node<Integer> elem = list.insertBefore(list.getHead(), 1);
+        assertEquals(elem, list.getHead());
     }
     @Test
-    public void getHead_getHead_getHeadOK(){
+    public void getTail_getTailOfList_TailIsCorrect(){
         DoubleLinkedList<Integer> list = new DoubleLinkedList<>();
+        list.insertBefore(list.getHead(),2);
+        Node<Integer> elem = list.insertAfter(list.getHead(), 1);
+        assertEquals(elem, list.getTail());
+    }
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void get_getElementByIndexEqualsSize_ThrowsException(){
+        DoubleLinkedList<Integer> list = new DoubleLinkedList<>();
+        list.insertBefore(list.getHead(),10);
+        list.insertBefore(list.getHead(),20);
+        list.get(2);
+    }
+    @Test
+    public void get_getElementByIndex_ElemIsCorrect(){
+        DoubleLinkedList<Integer> list = new DoubleLinkedList<>();
+        Node<Integer> elem = list.insertBefore(list.getHead(),20);
+        list.insertBefore(list.getHead(),20);
+        assertEquals(elem, list.get(1));
+    }
+    @Test
+    public void insertAfter_InsertIntoEmptyList_sizeEqualsOne(){
+        DoubleLinkedList<Integer> list = new DoubleLinkedList<>();
+        list.insertAfter(list.getHead(),1);
+        assertEquals(1, list.getSize());
+    }
+    @Test
+    public void pushFront_pushThreeElements_HeadIsCorrect(){
+        DoubleLinkedList<Integer> list = new DoubleLinkedList<>();
+        list.pushFront(30);
         list.pushFront(20);
-        list.pushFront(12);
-        assertEquals(12, ((Node<Integer>) list.getHead()).getData().intValue());
+        Node<Integer> elem = list.pushFront(10);
+        assertEquals(elem, list.getHead());
     }
     @Test
-    public void getTail_getTail_getTailOK(){
+    public void pushBack_pushThreeElements_TailIsCorrect(){
         DoubleLinkedList<Integer> list = new DoubleLinkedList<>();
-        list.pushFront(12);
-        list.pushFront(13);
-        assertEquals(12, ((Node<Integer>) list.getTail()).getData().intValue());
+        list.pushBack(10);
+        list.pushBack(20);
+        Node<Integer> elem = list.pushBack(30);
+        assertEquals(elem, list.getTail());
     }
     @Test
-    public void get_getValue_getOK(){
+    public void remove_removeElementFromList_getNextIsCorrect(){
         DoubleLinkedList<Integer> list = new DoubleLinkedList<>();
-        list.pushFront(14);
-        list.pushFront(13);
-        list.pushFront(12);
-        assertEquals(12, ((Node<Integer>)list.get(0)).getData().intValue() );
+        Node<Integer> elem = (Node<Integer>) list.pushBack(20);
+        list.pushFront(10);
+        Node<Integer> tail = list.pushBack(30);
+        list.remove(elem);
+        assertEquals(tail, list.getHead().getNext());
     }
     @Test
-    public void get_ValueWithSizeIndex_GetIndexOutOfBoundsException(){
+    public void remove_removeElementFromList_getPrevIsCorrect(){
+        DoubleLinkedList<Integer> list = new DoubleLinkedList<>();
+        Node<Integer> elem = (Node<Integer>) list.pushBack(20);
+        Node<Integer> head = list.pushFront(10);
+        list.pushBack(30);
+        list.remove(elem);
+        assertEquals(head, list.getTail().getPrev());
+    }
+    @Test
+    public void insertListAfter_insertListIntoItself_ListIsNotEmpty() {
         DoubleLinkedList<Integer> list = new DoubleLinkedList<>();
         list.pushFront(1);
+        list.insertListAfter(list.getHead(), list);
+        assertFalse(list.isEmpty());
+    }
+    @Test
+    public void insertListAfter_insertListAfterHead_GetPrevIsCorrect(){
+        DoubleLinkedList<Integer> list1 = new DoubleLinkedList<>();
+        list1.pushBack(40);
+        list1.pushFront(10);
+        DoubleLinkedList<Integer> list2 = new DoubleLinkedList<>();
+        Node<Integer> elem = (Node<Integer>)list2.pushBack(20);
+        list2.pushBack(30);
+        list1.insertListAfter(list1.getHead(), list2);
+        assertEquals(list1.getHead(),elem.getPrev());
+    }
+    @Test
+    public void insertListAfter_insertListAfterHead_GetNextIsCorrect(){
+        DoubleLinkedList<Integer> list1 = new DoubleLinkedList<>();
+        list1.pushBack(40);
+        list1.pushFront(10);
+        DoubleLinkedList<Integer> list2 = new DoubleLinkedList<>();
+        list2.pushBack(20);
+        Node<Integer> elem = (Node<Integer>) list2.pushBack(30);
+        list1.insertListAfter(list1.getHead(), list2);
+        assertEquals(list1.getTail(),elem.getNext());
+    }
+    @Test
+    public void insertListAfter_insertListIntoList_NewSizeIsCorrect() {
+        DoubleLinkedList<Integer> list1 = new DoubleLinkedList<>();
+        list1.pushFront(1);
+        list1.pushFront(2);
+        DoubleLinkedList<Integer> list2 = new DoubleLinkedList<>();
+        list2.pushFront(3);
+        list2.pushFront(4);
+        list1.insertListAfter(list1.getHead(), list2);
+        assertEquals(4, list1.getSize());
+    }
+    @Test
+    public void insertListBefore_insertListIntoList_NewSizeIsCorrect() {
+        DoubleLinkedList<Integer> list1 = new DoubleLinkedList<>();
+        list1.pushFront(1);
+        list1.pushFront(2);
+        DoubleLinkedList<Integer> list2 = new DoubleLinkedList<>();
+        list2.pushFront(3);
+        list2.pushFront(4);
+        list1.insertListBefore(list1.getHead(), list2);
+        assertEquals(4, list1.getSize());
+    }
+    @Test
+    public void insertListBefore_insertListIntoItself_ListIsNotEmpty() {
+        DoubleLinkedList<Integer> list = new DoubleLinkedList<>();
+        list.pushFront(1);
+        list.insertListBefore(list.getHead(), list);
+        assertFalse(list.isEmpty());
+    }
+    @Test
+    public void insertListBefore_insertListBeforeTail_GetPrevIsCorrect(){
+        DoubleLinkedList<Integer> list1 = new DoubleLinkedList<>();
+        list1.pushBack(40);
+        list1.pushFront(10);
+        DoubleLinkedList<Integer> list2 = new DoubleLinkedList<>();
+        Node<Integer> elem = (Node<Integer>)list2.pushBack(20);
+        list2.pushBack(30);
+        list1.insertListBefore(list1.getTail(), list2);
+        assertEquals(list1.getHead(),elem.getPrev());
+    }
+    @Test
+    public void getSize_getSizeOfEmptyArray_SizeEqualsZero(){
+        DynamicArray<Integer> array = new DynamicArray<>();
+        assertEquals(0, array.getSize());
+    }
+    @Test
+    public void get_getElementFromArray_ElementIsCorrect(){
+        DynamicArray<Integer> array = new DynamicArray<>(1);
+        array.set(0, 10);
+        assertEquals(10, array.get(0).intValue());
+    }
+    @Test
+    public void resize_setNewSizeWithNegativeValue_ThrowsException(){
+        var array = new DynamicArray<>();
+        var thrown = assertThrows(NegativeArraySizeException.class, () -> array.resize(-1));
+        assertEquals("Size can not be negative", thrown.getMessage());
+    }
+    @Test
+    public void resize_setNewSizeWithPositiveValue_NewSizeIsCorrect(){
+        DynamicArray<Integer> array = new DynamicArray<>(2);
+        array.resize(4);
+        assertEquals(4, array.getSize());
+    }
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void get_getElementWithIndexEqualsSize_ThrowsException(){
+        DynamicArray<Integer> array = new DynamicArray<>();
+        array.get(0);
+    }
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void set_setElementWithIndexEqualsSize_ThrowsException(){
+        DynamicArray<Integer> array = new DynamicArray<>();
+        array.set(0,10);
+    }
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void insert_insertElementWithIndexEqualsSize_ThrowsException(){
+        DynamicArray<Integer> array = new DynamicArray<>();
+        array.insert(0, 100);
+    }
+    @Test
+    public void insert_insertElementToEmptyArray_ElemIsCorrect(){
+        DynamicArray<Integer> array = new DynamicArray<>(2);
+        array.insert(0, 10);
+        array.set(1, 20);
+        assertEquals(10, array.get(0).intValue());
+    }
+    @Test
+    public void pushBack_pushBackElement_ElemIsCorrect(){
+        DynamicArray<Integer> array = new DynamicArray<>();
+        array.pushBack(400);
+        assertEquals(400, array.get(0).intValue());
+    }
+    @Test
+    public void pushBack_pushToArrayWithSizeBackElement_ElemIsCorrect(){
+        DynamicArray<Integer> arr = new DynamicArray<>(1);
+        arr.pushBack(1);
+        assertEquals(1, arr.get(1).intValue());
+    }
+    @Test
+    public void popBack_popBackElementFromEmptyArray_ThrowsException(){
+        DynamicArray<Integer> array = new DynamicArray<>(0);
         try {
-            list.get(1);
-        } catch (IndexOutOfBoundsException e) {
-            assertEquals("index out of bounds", e.getMessage());
+            array.popBack();
+            fail();
+        } catch (UnsupportedOperationException e) {
+            assertTrue(true);
         }
     }
     @Test
-    public void insertAfter_insertAfterValue_insertAfterOK(){
-        DoubleLinkedList<Integer> list = new DoubleLinkedList<>();
-        Node<Integer> node = list.pushFront(12);
-        list.insertAfter(node, 13);
-        assertEquals(13, ((Node<Integer>) list.getTail()).getData().intValue());
-    }
-    @Test
-    public void insertAfter_checkSizeAfterInsertAfter_sizeIncreasesByOne(){
-        DoubleLinkedList<Integer> list = new DoubleLinkedList<>();
-        Node<Integer> node = list.pushFront(12);
-        list.insertAfter(node, 13);
-        assertEquals(2, list.getSize());
-    }
-
-    @Test
-    public void insertBefore_insertBeforeValue_insertBeforeOK(){
-        DoubleLinkedList<Integer> list = new DoubleLinkedList<>();
-        Node<Integer> node = list.pushFront(12);
-        list.insertBefore(node, 13);
-        assertEquals(13, ((Node<Integer>) list.getHead()).getData().intValue());
-    }
-    @Test
-    public void insertBefore_checkSizeAfterInsertBefore_sizeIncreasesByOne(){
-        DoubleLinkedList<Integer> list = new DoubleLinkedList<>();
-        Node<Integer> node = list.pushFront(12);
-        list.insertBefore(node, 13);
-        assertEquals(2, list.getSize());
-    }
-    @Test
-    public void pushBack_pushBackValue_HeadTailSizeAreOK(){
-        DoubleLinkedList<Integer> list = new DoubleLinkedList<>();
-        list.pushBack(13);
-        list.pushBack(14);
-        assertEquals(13, ((Node<Integer>) list.getHead()).getData().intValue());
-        assertEquals(14, ((Node<Integer>) list.getTail()).getData().intValue());
-        assertEquals(2, list.getSize());
-    }
-    @Test
-    public void remove_removeElement_removeAndSizeAreOK(){
-        DoubleLinkedList<Integer> list = new DoubleLinkedList<>();
-        Node<Integer> node1 = list.pushBack(13);
-        Node<Integer> node2 = list.pushBack(14);
-        Node<Integer> node3 = list.pushBack(15);
-
-        list.remove(node2);
-
-        assertEquals(node3, node1.getNext());
-        assertEquals(node1, node3.getPrev());
-        assertEquals(2, list.getSize());
-    }
-    @Test
-    public void insertListAfter_insertListAfterList_insertListAfterListOK(){
-        DoubleLinkedList<Integer> list1 = new DoubleLinkedList<>();
-        Node<Integer> node1 = list1.pushBack(1);
-        Node<Integer> node2 = list1.pushBack(2);
-        Node<Integer> node3 = list1.pushBack(3);
-
-        DoubleLinkedList<Integer> list2 = new DoubleLinkedList<>();
-        Node<Integer> node4 = list2.pushBack(4);
-        Node<Integer> node5 = list2.pushBack(5);
-        Node<Integer> node6 = list2.pushBack(6);
-
-        list1.insertListAfter(node2, list2);
-
-        assertEquals(node2, node1.getNext());
-        assertEquals(node4, node2.getNext());
-        assertEquals(node5, node4.getNext());
-        assertEquals(node6, node5.getNext());
-        assertEquals(node3, node6.getNext());
-    }
-
-    @Test
-    public void insertListBefore_insertListBeforeList_insertListBeforeListOK(){
-        DoubleLinkedList<Integer> list1 = new DoubleLinkedList<>();
-        Node<Integer> node1 = list1.pushBack(1);
-        Node<Integer> node2 = list1.pushBack(2);
-        Node<Integer> node3 = list1.pushBack(3);
-
-        DoubleLinkedList<Integer> list2 = new DoubleLinkedList<>();
-        Node<Integer> node4 = list2.pushBack(4);
-        Node<Integer> node5 = list2.pushBack(5);
-        Node<Integer> node6 = list2.pushBack(6);
-
-        list1.insertListBefore(node2, list2);
-
-        assertEquals(node4, node1.getNext());
-        assertEquals(node5, node4.getNext());
-        assertEquals(node6, node5.getNext());
-        assertEquals(node2, node6.getNext());
-        assertEquals(node3, node2.getNext());
+    public void remove_removeElementWithIndexEqualsSize_ThrowsException(){
+        DynamicArray<Integer> array = new DynamicArray<>(3);
+        try {
+            array.remove(3);
+            fail();
+        } catch (IndexOutOfBoundsException e) {
+            assertTrue(true);
+        }
     }
 }
