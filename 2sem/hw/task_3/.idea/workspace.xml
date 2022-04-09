@@ -17,6 +17,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -33,56 +41,57 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../task_1" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RunManager" selected="JUnit.Task3_Tests">
-    <configuration name="Task3_Tests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.Task3_Tests.heapSort_DifficultData_HeapSortOK">
+    <configuration name="Task3_Tests.heapSort_DecreasingArrayLastLastElementIsOk_HeapSortOK" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="126_shulepov_task_3" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="Task3_Tests" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Task3_Tests.HeapSort_sortBigSortedArray_sortOK" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="126_shulepov_task_3" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="Task3_Tests" />
-      <option name="METHOD_NAME" value="HeapSort_sortBigSortedArray_sortOK" />
+      <option name="METHOD_NAME" value="heapSort_DecreasingArrayLastLastElementIsOk_HeapSortOK" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Task3_Tests.HeapSort_sortTwoSortedElements_sortOK" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Task3_Tests.heapSort_DifficultData_HeapSortOK" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="126_shulepov_task_3" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="Task3_Tests" />
-      <option name="METHOD_NAME" value="HeapSort_sortTwoSortedElements_sortOK" />
+      <option name="METHOD_NAME" value="heapSort_DifficultData_HeapSortOK" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Task3_Tests.QuickSort_sortSomeData_SortOK" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Task3_Tests.heapSort_FirstInTheMiddle_HeapSortOK" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="126_shulepov_task_3" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="Task3_Tests" />
-      <option name="METHOD_NAME" value="QuickSort_sortSomeData_SortOK" />
+      <option name="METHOD_NAME" value="heapSort_FirstInTheMiddle_HeapSortOK" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Task3_Tests.QuickSort_sortTwoElements_SortOK" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Task3_Tests.heapSort_FourRandomElements_HeapSortOK" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="126_shulepov_task_3" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="Task3_Tests" />
-      <option name="METHOD_NAME" value="QuickSort_sortTwoElements_SortOK" />
+      <option name="METHOD_NAME" value="heapSort_FourRandomElements_HeapSortOK" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Task3_Tests.heapSort_HasRepeatingElement_HeapSortOK" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="126_shulepov_task_3" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Task3_Tests" />
+      <option name="METHOD_NAME" value="heapSort_HasRepeatingElement_HeapSortOK" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -90,11 +99,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.Task3_Tests" />
-        <item itemvalue="JUnit.Task3_Tests.QuickSort_sortSomeData_SortOK" />
-        <item itemvalue="JUnit.Task3_Tests.QuickSort_sortTwoElements_SortOK" />
-        <item itemvalue="JUnit.Task3_Tests.HeapSort_sortBigSortedArray_sortOK" />
-        <item itemvalue="JUnit.Task3_Tests.HeapSort_sortTwoSortedElements_sortOK" />
+        <item itemvalue="JUnit.Task3_Tests.heapSort_DifficultData_HeapSortOK" />
+        <item itemvalue="JUnit.Task3_Tests.heapSort_DecreasingArrayLastLastElementIsOk_HeapSortOK" />
+        <item itemvalue="JUnit.Task3_Tests.heapSort_HasRepeatingElement_HeapSortOK" />
+        <item itemvalue="JUnit.Task3_Tests.heapSort_FourRandomElements_HeapSortOK" />
+        <item itemvalue="JUnit.Task3_Tests.heapSort_FirstInTheMiddle_HeapSortOK" />
       </list>
     </recent_temporary>
   </component>

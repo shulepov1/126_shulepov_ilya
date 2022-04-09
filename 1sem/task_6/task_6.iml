@@ -7,14 +7,9 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/lib/Task_6.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
+    <orderEntry type="library" name="Task_6" level="project" />
+    <orderEntry type="library" name="Task_62" level="project" />
+    <orderEntry type="library" name="Task_63" level="project" />
+    <orderEntry type="library" name="Task_61" level="project" />
   </component>
 </module>

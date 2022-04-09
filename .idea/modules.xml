@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/126_shulepov_ilya.iml" filepath="$PROJECT_DIR$/.idea/126_shulepov_ilya.iml" />
+      <module fileurl="file://$PROJECT_DIR$/1sem/bonus/bonus.iml" filepath="$PROJECT_DIR$/1sem/bonus/bonus.iml" />
+      <module fileurl="file://$PROJECT_DIR$/1sem/task_1/task_1.iml" filepath="$PROJECT_DIR$/1sem/task_1/task_1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/1sem/task_10/task_10.iml" filepath="$PROJECT_DIR$/1sem/task_10/task_10.iml" />
+      <module fileurl="file://$PROJECT_DIR$/2sem/hw/task_1/task_11.iml" filepath="$PROJECT_DIR$/2sem/hw/task_1/task_11.iml" />
+      <module fileurl="file://$PROJECT_DIR$/1sem/task_2/task_2.iml" filepath="$PROJECT_DIR$/1sem/task_2/task_2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/2sem/hw/task_2/task_21.iml" filepath="$PROJECT_DIR$/2sem/hw/task_2/task_21.iml" />
+      <module fileurl="file://$PROJECT_DIR$/1sem/task_3/task_3.iml" filepath="$PROJECT_DIR$/1sem/task_3/task_3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/2sem/hw/task_3/task_31.iml" filepath="$PROJECT_DIR$/2sem/hw/task_3/task_31.iml" />
+      <module fileurl="file://$PROJECT_DIR$/1sem/task_4/task_4.iml" filepath="$PROJECT_DIR$/1sem/task_4/task_4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/1sem/task_5/task_5.iml" filepath="$PROJECT_DIR$/1sem/task_5/task_5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/1sem/task_6/task_6.iml" filepath="$PROJECT_DIR$/1sem/task_6/task_6.iml" />
+      <module fileurl="file://$PROJECT_DIR$/1sem/task_7/task_7.iml" filepath="$PROJECT_DIR$/1sem/task_7/task_7.iml" />
+      <module fileurl="file://$PROJECT_DIR$/1sem/task_8/task_8.iml" filepath="$PROJECT_DIR$/1sem/task_8/task_8.iml" />
+      <module fileurl="file://$PROJECT_DIR$/1sem/task_9/task_9.iml" filepath="$PROJECT_DIR$/1sem/task_9/task_9.iml" />
+    </modules>
+  </component>
+</project>

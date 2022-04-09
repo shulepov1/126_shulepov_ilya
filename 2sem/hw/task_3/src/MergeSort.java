@@ -16,7 +16,7 @@ public class MergeSort<T> implements Sort<T> {
         int middle = (begin + end) / 2;
         mergeSortRec(buffer, sorting, begin, middle);
         mergeSortRec(buffer, sorting, middle + 1, end);
-        merge(buffer, sorting, begin, middle - begin + 1, end - middle);
+        merge(buffer, sorting, begin, middle + 1 - begin, end - middle);
     }
 
     private void merge(T[] from, T[] to, int pos, int blockSize1, int blockSize2) {

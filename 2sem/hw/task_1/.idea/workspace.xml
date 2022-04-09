@@ -41,29 +41,18 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/IdeaProjects/Mpgu2sem" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
-  <component name="RunManager" selected="JUnit.Task1_Tests.insertListBefore_insertListBeforeList_insertListBeforeListOK">
-    <configuration name="Task1_Tests.insertBefore_checkSizeAfterInsertBefore_sizeIncreasesByOne" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.Task1_Tests">
+    <configuration name="Task1_Tests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="126_shulepov_task_1" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="Task1_Tests" />
-      <option name="METHOD_NAME" value="insertBefore_checkSizeAfterInsertBefore_sizeIncreasesByOne" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Task1_Tests.insertListAfter_insertListAfterList_insertListAfterListOK" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="126_shulepov_task_1" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="Task1_Tests" />
-      <option name="METHOD_NAME" value="insertListAfter_insertListAfterList_insertListAfterListOK" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -78,21 +67,31 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Task1_Tests.pushBack_pushBackValue_pushBackOK" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Task1_Tests.insert_insertElementToSizeIndex_GetIndexOutOfBoundsException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="126_shulepov_task_1" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="Task1_Tests" />
-      <option name="METHOD_NAME" value="pushBack_pushBackValue_pushBackOK" />
+      <option name="METHOD_NAME" value="insert_insertElementToSizeIndex_GetIndexOutOfBoundsException" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Task1_Tests.remove_removeElement_removeOK" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Task1_Tests.remove_removeElement_BoundsAreCorrect" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="126_shulepov_task_1" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="Task1_Tests" />
-      <option name="METHOD_NAME" value="remove_removeElement_removeOK" />
+      <option name="METHOD_NAME" value="remove_removeElement_BoundsAreCorrect" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Task1_Tests.remove_removeValueWithSizeIndex_GetIndexOutOfBoundsException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="126_shulepov_task_1" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Task1_Tests" />
+      <option name="METHOD_NAME" value="remove_removeValueWithSizeIndex_GetIndexOutOfBoundsException" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -100,11 +99,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.Task1_Tests" />
+        <item itemvalue="JUnit.Task1_Tests.remove_removeElement_BoundsAreCorrect" />
+        <item itemvalue="JUnit.Task1_Tests.remove_removeValueWithSizeIndex_GetIndexOutOfBoundsException" />
+        <item itemvalue="JUnit.Task1_Tests.insert_insertElementToSizeIndex_GetIndexOutOfBoundsException" />
         <item itemvalue="JUnit.Task1_Tests.insertListBefore_insertListBeforeList_insertListBeforeListOK" />
-        <item itemvalue="JUnit.Task1_Tests.insertListAfter_insertListAfterList_insertListAfterListOK" />
-        <item itemvalue="JUnit.Task1_Tests.remove_removeElement_removeOK" />
-        <item itemvalue="JUnit.Task1_Tests.pushBack_pushBackValue_pushBackOK" />
-        <item itemvalue="JUnit.Task1_Tests.insertBefore_checkSizeAfterInsertBefore_sizeIncreasesByOne" />
       </list>
     </recent_temporary>
   </component>
